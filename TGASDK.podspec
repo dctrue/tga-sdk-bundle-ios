@@ -17,6 +17,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
      'TGASDK' => ['TGASDK/Assets/Langs.bundle', 'TGASDK/Assets/*.xcassets']
   }
+  s.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 armv7s arm64' }
   
   s.vendored_frameworks = "TGASDK/Classes/TGASDK.framework"
   s.dependency 'AppLovinSDK', '~> 11.4.4'
