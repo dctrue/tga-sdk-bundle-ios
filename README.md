@@ -1,6 +1,5 @@
 # TGASDK
 
-[![CI Status](https://img.shields.io/travis/327847390@q.com/TGASDK-Demo.svg?style=flat)](https://travis-ci.org/327847390@q.com/TGASDK-Demo)
 [![languages](https://img.shields.io/badge/languages-Swift%20%7C%20ObjC-blue.svg)](https://img.shields.io/badge/languages-Swift%20%7C%20ObjC-blue.svg)
 [![Swift](https://img.shields.io/badge/Swift-5.3_5.4_5.5_5.6-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.3_5.4_5.5_5.6-Orange?style=flat-square)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/TGASDK.svg?style=flat-square)](https://img.shields.io/cocoapods/v/TGASDK.svg)
