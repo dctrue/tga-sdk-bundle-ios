@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'TGASDK-Swift' do
+  pod 'TGASDK', :path => '../'
+  
+  pod 'CocoaDebug', '~> 1.7.2'
+end
+
+target 'TGASDK-OC' do
+  pod 'TGASDK', :path => '../'
+end
