@@ -1,5 +1,5 @@
 # TGASDK
-
+[![Xcode - Build and Analyze](https://github.com/dctrue/tga-sdk-bundle-ios/actions/workflows/objective-c-xcode.yml/badge.svg)](https://github.com/dctrue/tga-sdk-bundle-ios/actions/workflows/objective-c-xcode.yml)
 [![languages](https://img.shields.io/badge/languages-Swift%20%7C%20ObjC-blue.svg)](https://img.shields.io/badge/languages-Swift%20%7C%20ObjC-blue.svg)
 [![Swift](https://img.shields.io/badge/Swift-5.3_5.4_5.5_5.6-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.3_5.4_5.5_5.6-Orange?style=flat-square)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/TGASDK.svg?style=flat-square)](https://img.shields.io/cocoapods/v/TGASDK.svg)
