@@ -24,7 +24,7 @@ pod 'TGASDK'
 ```Swift
 //引入头文件
 import TGASDK
-```Swift
+```
 
 ### 基础配置
 ```Swift
@@ -37,7 +37,6 @@ TGASDK.shared.configuration.navitaionTintColor = UIColor.white
 TGASDK.shared.configuration.navifationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 TGASDK.shared.configuration.statusBarStyle = .lightContent
 TGASDK.shared.configuration.navigationBackImage = UIImage()
-、
 ```
 
 ### 初始化 TGASDK
