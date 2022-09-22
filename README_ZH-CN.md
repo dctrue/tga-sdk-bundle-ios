@@ -1,11 +1,5 @@
 # TGASDK
 
-[![languages](https://img.shields.io/badge/languages-Swift%20%7C%20ObjC-blue.svg)](https://img.shields.io/badge/languages-Swift%20%7C%20ObjC-blue.svg)
-[![Swift](https://img.shields.io/badge/Swift-5.3_5.4_5.5_5.6-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.3_5.4_5.5_5.6-Orange?style=flat-square)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/TGASDK.svg?style=flat-square)](https://img.shields.io/cocoapods/v/TGASDK.svg)
-[![Platform](https://img.shields.io/badge/Platforms-iOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-iOS-yellowgreen?style=flat-square)
-
-
 ## Requirements
 - **iOS** 10.0+
 - Xcode 10.0+
@@ -28,14 +22,21 @@ import TGASDK
 
 ### 基础配置
 ```Swift
-//主题皮肤颜色有“regular”，“lavender”，“orange”，“dark”，“night-blue”，“dark-blue”，“gnc”，下面有示例图，可以进行参考一下，如果不需要这些主题皮肤可以直接传null或者空字符
-TGASDK.shared.configuration.theme = "orange" //配置主题颜色 
-
-TGASDK.shared.configuration.lang = "\(Locale.current.languageCode ?? "")"
-TGASDK.shared.configuration.navitaionBarTintColor = UIColor.red
-TGASDK.shared.configuration.navitaionTintColor = UIColor.white
+// 配置Web主题颜色 具体可以查看官方文档
+TGASDK.shared.configuration.webTheme = "orange"
+// 配置语言环境，默认为本机系统语音
+TGASDK.shared.configuration.lang = "\(Locale(identifier: NSLocale.preferredLanguages.first ?? "zh-Hans").languageCode ?? "")"
+// 是否隐藏导航栏，默认不隐藏
+TGASDK.shared.configuration.isHiddenNavigation = false
+// 导航栏背景颜色
+TGASDK.shared.configuration.navigationBarTintColor = UIColor.red
+// 导航栏Tint颜色
+TGASDK.shared.configuration.navigationTintColor = UIColor.white
+// 导航栏标题属性
 TGASDK.shared.configuration.navifationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+// 状态栏风格
 TGASDK.shared.configuration.statusBarStyle = .lightContent
+// 返回按钮图标
 TGASDK.shared.configuration.navigationBackImage = UIImage()
 ```
 
@@ -48,7 +49,21 @@ TGASDK.shared.initSdk(appKey: "", authCode: "", delegate: self)
 ### 打开游戏中心
 ```Swift
 // 打开游戏中心方法必须在初始化SDK成功之后
-TGASDK.shared.openGameCenter()
+
+// 网页信息
+let webPageInfo = TGAWebPageInfo()
+// 地址
+webPageInfo.url = "url"
+// 是否隐藏导航栏
+webPageInfo.isHiddenNavigation = true
+// 导航栏颜色
+webPageInfo.navigationBarTintColor = UIColor.red
+// 是否显示状态栏背景颜色
+webPageInfo.isShowStatusBar = true
+// 状态栏背景颜色
+webPageInfo.statusBarBackgroundColor = UIColor.red
+// 打开游戏中心，secPageInfo可空
+TGASDK.shared.openGameCenter(secPageInfo: webPageInfo)
 ```
 
 ### 委托回调方法
@@ -84,12 +99,12 @@ func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
 
 ### 基础配置 TGASDK
 ```objc
-//主题皮肤颜色有“regular”，“lavender”，“orange”，“dark”，“night-blue”，“dark-blue”，“gnc”，下面有示例图，可以进行参考一下，如果不需要这些主题皮肤可以直接传null或者空字符
-TGASDK.shared.configuration.theme = @"regular";
+TGASDK.shared.configuration.webTheme = @"regular";
 TGASDK.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-TGASDK.shared.configuration.navitaionBarTintColor = [UIColor redColor];
-TGASDK.shared.configuration.navitaionTintColor = [UIColor whiteColor];
-TGASDK.shared.configuration.navifationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
+TGASDK.shared.configuration.lang.isHiddenNavigation = false;
+TGASDK.shared.configuration.navigationBarTintColor = [UIColor redColor];
+TGASDK.shared.configuration.navigationTintColor = [UIColor whiteColor];
+TGASDK.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
 TGASDK.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
 TGASDK.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
 ```
@@ -102,7 +117,7 @@ TGASDK.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigati
 
 ### 打开游戏中心
 ```objc
-[TGASDK.shared openGameCenter];
+[TGASDK.shared openGameCenterWithSecPageInfo:nil];
 ```
 
 ### 委托回调方法

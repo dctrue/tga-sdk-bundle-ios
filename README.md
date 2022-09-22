@@ -29,11 +29,12 @@ import TGASDK
 
 ### Config TGASDK
 ```Swift
-TGASDK.shared.configuration.theme = "orange"
+TGASDK.shared.configuration.webTheme = "orange"
 TGASDK.shared.configuration.lang = "\(Locale.current.languageCode ?? "")"
-TGASDK.shared.configuration.navitaionBarTintColor = UIColor.red
-TGASDK.shared.configuration.navitaionTintColor = UIColor.white
-TGASDK.shared.configuration.navifationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+TGASDK.shared.configuration.isHiddenNavigation = false
+TGASDK.shared.configuration.navigationBarTintColor = UIColor.red
+TGASDK.shared.configuration.navigationTintColor = UIColor.white
+TGASDK.shared.configuration.navigationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 TGASDK.shared.configuration.statusBarStyle = .lightContent
 TGASDK.shared.configuration.navigationBackImage = UIImage()
 ```
@@ -46,7 +47,13 @@ TGASDK.shared.initSdk(appKey: "", authCode: "", delegate: self)
 ```
 ### Open GameCenter
 ```Swift
-TGASDK.shared.openGameCenter()
+let webPageInfo = TGAWebPageInfo()
+webPageInfo.url = ""
+webPageInfo.isHiddenNavigation = true
+webPageInfo.navigationBarTintColor = UIColor.red
+webPageInfo.isShowStatusBar = true
+webPageInfo.statusBarBackgroundColor = UIColor.red
+TGASDK.shared.openGameCenter(secPageInfo: webPageInfo)
 ```
 
 ### Delegate
@@ -82,11 +89,12 @@ func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
 ### Config TGASDK
 ```objc
 // TGASDK config attribute
-TGASDK.shared.configuration.theme = @"regular";
+TGASDK.shared.configuration.webTheme = @"regular";
 TGASDK.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-TGASDK.shared.configuration.navitaionBarTintColor = [UIColor redColor];
-TGASDK.shared.configuration.navitaionTintColor = [UIColor whiteColor];
-TGASDK.shared.configuration.navifationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
+TGASDK.shared.configuration.isHiddenNavigation = false;
+TGASDK.shared.configuration.navigationBarTintColor = [UIColor redColor];
+TGASDK.shared.configuration.navigationTintColor = [UIColor whiteColor];
+TGASDK.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
 TGASDK.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
 TGASDK.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
 ```
@@ -99,7 +107,7 @@ TGASDK.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigati
 
 ### Open GameCenter
 ```objc
-[TGASDK.shared openGameCenter];
+[TGASDK.shared openGameCenterWithSecPageInfo:nil];
 ```
 
 ### Delegate
