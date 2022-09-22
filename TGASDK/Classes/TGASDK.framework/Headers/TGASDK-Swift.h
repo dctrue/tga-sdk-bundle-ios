@@ -231,27 +231,30 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class UIColor;
 @class UIImage;
 
-/// MARK - TGAConfiguration
+/// MARK - TGA configuration
 SWIFT_CLASS("_TtC6TGASDK16TGAConfiguration")
 @interface TGAConfiguration : NSObject
-/// theme default ‘regular’
-@property (nonatomic, copy) NSString * _Nonnull theme;
-/// lang default ‘app lang’
+/// web主题颜色 默认为regular
+@property (nonatomic, copy) NSString * _Nonnull webTheme;
+/// 默认本地语言
 @property (nonatomic, copy) NSString * _Nonnull lang;
-/// navigationController barTintColor color default ‘regular’
-@property (nonatomic, strong) UIColor * _Nonnull navitaionBarTintColor;
-/// navigationController TintColor default ‘white’
-@property (nonatomic, strong) UIColor * _Nonnull navitaionTintColor;
-/// navigationController titleTextAttributes
-@property (nonatomic, copy) NSDictionary<NSAttributedStringKey, id> * _Nonnull navifationTitleTextAttributes;
+/// 导航栏是否隐藏 默认不隐藏
+@property (nonatomic) BOOL isHiddenNavigation;
+/// 导航栏背景颜色 默认为蓝色
+@property (nonatomic, strong) UIColor * _Nonnull navigationBarTintColor;
+/// 导航栏 TintColor 默认为白色
+@property (nonatomic, strong) UIColor * _Nonnull navigationTintColor;
+/// 导航栏标题属性
+@property (nonatomic, copy) NSDictionary<NSAttributedStringKey, id> * _Nonnull navigationTitleTextAttributes;
 /// statusBarStyle default ‘lightContent’
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
-/// navigationBackImage
+/// 导航栏返回图片
 @property (nonatomic, strong) UIImage * _Nullable navigationBackImage;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @protocol TGASDKDelegate;
+@class TGAWebPageInfo;
 
 /// MARK - TGASDK
 SWIFT_CLASS("_TtC6TGASDK6TGASDK")
@@ -269,7 +272,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASDK * _No
 ///
 - (void)initSdkWithAppKey:(NSString * _Nonnull)appKey authCode:(NSString * _Nullable)authCode delegate:(id <TGASDKDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
 /// open game Controller
-- (void)openGameCenter;
+- (void)openGameCenterWithSecPageInfo:(TGAWebPageInfo * _Nullable)secPageInfo;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -300,6 +303,24 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASDKDelegate_")
 /// 用户登出
 - (void)tgaSdkOnLogout;
 @end
+
+
+/// MARK - TGA WebPageInfo
+SWIFT_CLASS("_TtC6TGASDK14TGAWebPageInfo")
+@interface TGAWebPageInfo : NSObject
+/// 网页链接
+@property (nonatomic, copy) NSString * _Nonnull url;
+/// 是否隐藏导航栏
+@property (nonatomic) BOOL isHiddenNavigation;
+/// 导航栏背景颜色 默认为蓝色
+@property (nonatomic, strong) UIColor * _Nonnull navigationBarTintColor;
+/// 是否显示状态栏背景颜色
+@property (nonatomic) BOOL isShowStatusBar;
+/// 状态栏背景颜色
+@property (nonatomic, strong) UIColor * _Nullable statusBarBackgroundColor;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 
 
@@ -562,27 +583,30 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class UIColor;
 @class UIImage;
 
-/// MARK - TGAConfiguration
+/// MARK - TGA configuration
 SWIFT_CLASS("_TtC6TGASDK16TGAConfiguration")
 @interface TGAConfiguration : NSObject
-/// theme default ‘regular’
-@property (nonatomic, copy) NSString * _Nonnull theme;
-/// lang default ‘app lang’
+/// web主题颜色 默认为regular
+@property (nonatomic, copy) NSString * _Nonnull webTheme;
+/// 默认本地语言
 @property (nonatomic, copy) NSString * _Nonnull lang;
-/// navigationController barTintColor color default ‘regular’
-@property (nonatomic, strong) UIColor * _Nonnull navitaionBarTintColor;
-/// navigationController TintColor default ‘white’
-@property (nonatomic, strong) UIColor * _Nonnull navitaionTintColor;
-/// navigationController titleTextAttributes
-@property (nonatomic, copy) NSDictionary<NSAttributedStringKey, id> * _Nonnull navifationTitleTextAttributes;
+/// 导航栏是否隐藏 默认不隐藏
+@property (nonatomic) BOOL isHiddenNavigation;
+/// 导航栏背景颜色 默认为蓝色
+@property (nonatomic, strong) UIColor * _Nonnull navigationBarTintColor;
+/// 导航栏 TintColor 默认为白色
+@property (nonatomic, strong) UIColor * _Nonnull navigationTintColor;
+/// 导航栏标题属性
+@property (nonatomic, copy) NSDictionary<NSAttributedStringKey, id> * _Nonnull navigationTitleTextAttributes;
 /// statusBarStyle default ‘lightContent’
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
-/// navigationBackImage
+/// 导航栏返回图片
 @property (nonatomic, strong) UIImage * _Nullable navigationBackImage;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 @protocol TGASDKDelegate;
+@class TGAWebPageInfo;
 
 /// MARK - TGASDK
 SWIFT_CLASS("_TtC6TGASDK6TGASDK")
@@ -600,7 +624,7 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASDK * _No
 ///
 - (void)initSdkWithAppKey:(NSString * _Nonnull)appKey authCode:(NSString * _Nullable)authCode delegate:(id <TGASDKDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
 /// open game Controller
-- (void)openGameCenter;
+- (void)openGameCenterWithSecPageInfo:(TGAWebPageInfo * _Nullable)secPageInfo;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -631,6 +655,24 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASDKDelegate_")
 /// 用户登出
 - (void)tgaSdkOnLogout;
 @end
+
+
+/// MARK - TGA WebPageInfo
+SWIFT_CLASS("_TtC6TGASDK14TGAWebPageInfo")
+@interface TGAWebPageInfo : NSObject
+/// 网页链接
+@property (nonatomic, copy) NSString * _Nonnull url;
+/// 是否隐藏导航栏
+@property (nonatomic) BOOL isHiddenNavigation;
+/// 导航栏背景颜色 默认为蓝色
+@property (nonatomic, strong) UIColor * _Nonnull navigationBarTintColor;
+/// 是否显示状态栏背景颜色
+@property (nonatomic) BOOL isShowStatusBar;
+/// 状态栏背景颜色
+@property (nonatomic, strong) UIColor * _Nullable statusBarBackgroundColor;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
 
 
 

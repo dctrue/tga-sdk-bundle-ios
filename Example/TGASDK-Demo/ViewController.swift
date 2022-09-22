@@ -85,18 +85,25 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch Row.allCases[indexPath.row] {
         case .config:
-            TGASDK.shared.configuration.theme = "orange"
+            TGASDK.shared.configuration.webTheme = "orange"
             TGASDK.shared.configuration.lang = "\(Locale.current.languageCode ?? "")"
-            TGASDK.shared.configuration.navitaionBarTintColor = UIColor.red
-            TGASDK.shared.configuration.navitaionTintColor = UIColor.white
-            TGASDK.shared.configuration.navifationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            TGASDK.shared.configuration.navigationBarTintColor = UIColor.red
+            TGASDK.shared.configuration.navigationTintColor = UIColor.white
+            TGASDK.shared.configuration.navigationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             TGASDK.shared.configuration.statusBarStyle = .lightContent
             TGASDK.shared.configuration.navigationBackImage = UIImage(named: "navigation_back_default")
         case .initTGA:
             TGASDK.shared.initSdk(appKey: "", authCode: "", delegate: self)
         case .openGameCenter:
             
-            TGASDK.shared.openGameCenter()
+            
+            let webPageInfo = TGAWebPageInfo()
+            webPageInfo.url = ""
+            webPageInfo.isHiddenNavigation = true
+            webPageInfo.navigationBarTintColor = UIColor.red
+            webPageInfo.isShowStatusBar = true
+            webPageInfo.statusBarBackgroundColor = UIColor.red
+            TGASDK.shared.openGameCenter(secPageInfo: webPageInfo)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
