@@ -24,7 +24,7 @@ import TGASDK
 ```Swift
 // 配置Web主题颜色 具体可以查看官方文档
 TGASDK.shared.configuration.webTheme = "orange"
-// 配置语言环境，默认为本机系统语音
+// 配置语言环境，默认为本机系统语言
 TGASDK.shared.configuration.lang = "\(Locale(identifier: NSLocale.preferredLanguages.first ?? "zh-Hans").languageCode ?? "")"
 // 是否隐藏导航栏，默认不隐藏
 TGASDK.shared.configuration.isHiddenNavigation = false
