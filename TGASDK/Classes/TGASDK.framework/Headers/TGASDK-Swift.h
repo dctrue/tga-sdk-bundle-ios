@@ -253,26 +253,32 @@ SWIFT_CLASS("_TtC6TGASDK16TGAConfiguration")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@protocol TGASDKDelegate;
-@class TGAWebPageInfo;
+@protocol TGASdkDelegate;
 
 /// MARK - TGASDK
-SWIFT_CLASS("_TtC6TGASDK6TGASDK")
-@interface TGASDK : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASDK * _Nonnull shared;)
-+ (TGASDK * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS("_TtC6TGASDK6TGASdk")
+@interface TGASdk : NSObject
+/// 单利
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _Nonnull shared;)
++ (TGASdk * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 /// 默认配置
 @property (nonatomic, strong) TGAConfiguration * _Nonnull configuration;
-/// init sdk
-/// \param appKey appKey
+/// 初始化SDK
+/// \param env sdk区分环境的唯一值,可以传null或者空字符
 ///
-/// \param authCode authCode
+/// \param appKey app对接密钥
 ///
-/// \param completion ((NSError?) -> Void)
+/// \param authCode 事先需要调用自己服务端获取登录凭证code，传进本方法中，如果code返回null，游戏平台将以游客的身份登录
 ///
-- (void)initSdkWithAppKey:(NSString * _Nonnull)appKey authCode:(NSString * _Nullable)authCode delegate:(id <TGASDKDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
-/// open game Controller
-- (void)openGameCenterWithSecPageInfo:(TGAWebPageInfo * _Nullable)secPageInfo;
+/// \param delegate 委托
+///
+- (void)initSdkWithEnv:(NSString * _Nullable)env appKey:(NSString * _Nonnull)appKey authCode:(NSString * _Nullable)authCode delegate:(id <TGASdkDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
+/// 退出登录
+- (void)logout;
+/// 打开游戏中心控制器
+/// \param secUrl 打开游戏中心的同时再打开该网页，可用于打开游戏中心的同时跳到某一款游戏
+///
+- (void)openGameCenterWithSecUrl:(NSString * _Nullable)secUrl;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -280,45 +286,23 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASDK * _No
 @class NSError;
 
 /// MARK - TGASDK Delegate
-SWIFT_PROTOCOL("_TtP6TGASDK14TGASDKDelegate_")
-@protocol TGASDKDelegate <NSObject>
+SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
+@protocol TGASdkDelegate <NSObject>
 /// 初始化成功
 - (void)tgaSdkInitSucceed;
 /// 初始化失败
 /// \param error NSError
 ///
 - (void)tgaSdkInitError:(NSError * _Nonnull)error;
-/// 获取登录凭证code
-/// <ul>
-///   <li>
-///     Parameters: 事先需要调用自己服务端获取登录凭证code，传进本方法中，如果code返回null，游戏平台将以游客的身份登录
-///   </li>
-/// </ul>
+/// 获取登录凭证authCode
+/// 唤起app自身登录界面，当sdk是游客身份登录时，如果要充值，购买钻石等操作页面会弹出提示是否去登录，点击去登录回调
+/// \param completion 回传服务端获取登录凭证code
 ///
-/// returns:
-/// Code
-- (void)tgaSdkGetAuthCodeWithCompletion:(SWIFT_NOESCAPE void (^ _Nonnull)(NSString * _Nullable))completion;
+- (void)tgaSdkGetAuthCodeWithCompletion:(void (^ _Nonnull)(NSString * _Nullable))completion;
 /// 关闭游戏中心
 - (void)tgaSdkCloseGameCenter;
 /// 用户登出
 - (void)tgaSdkOnLogout;
-@end
-
-
-/// MARK - TGA WebPageInfo
-SWIFT_CLASS("_TtC6TGASDK14TGAWebPageInfo")
-@interface TGAWebPageInfo : NSObject
-/// 网页链接
-@property (nonatomic, copy) NSString * _Nonnull url;
-/// 是否隐藏导航栏
-@property (nonatomic) BOOL isHiddenNavigation;
-/// 导航栏背景颜色 默认为蓝色
-@property (nonatomic, strong) UIColor * _Nonnull navigationBarTintColor;
-/// 是否显示状态栏背景颜色
-@property (nonatomic) BOOL isShowStatusBar;
-/// 状态栏背景颜色
-@property (nonatomic, strong) UIColor * _Nullable statusBarBackgroundColor;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 
@@ -605,26 +589,32 @@ SWIFT_CLASS("_TtC6TGASDK16TGAConfiguration")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@protocol TGASDKDelegate;
-@class TGAWebPageInfo;
+@protocol TGASdkDelegate;
 
 /// MARK - TGASDK
-SWIFT_CLASS("_TtC6TGASDK6TGASDK")
-@interface TGASDK : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASDK * _Nonnull shared;)
-+ (TGASDK * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
+SWIFT_CLASS("_TtC6TGASDK6TGASdk")
+@interface TGASdk : NSObject
+/// 单利
+SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _Nonnull shared;)
++ (TGASdk * _Nonnull)shared SWIFT_WARN_UNUSED_RESULT;
 /// 默认配置
 @property (nonatomic, strong) TGAConfiguration * _Nonnull configuration;
-/// init sdk
-/// \param appKey appKey
+/// 初始化SDK
+/// \param env sdk区分环境的唯一值,可以传null或者空字符
 ///
-/// \param authCode authCode
+/// \param appKey app对接密钥
 ///
-/// \param completion ((NSError?) -> Void)
+/// \param authCode 事先需要调用自己服务端获取登录凭证code，传进本方法中，如果code返回null，游戏平台将以游客的身份登录
 ///
-- (void)initSdkWithAppKey:(NSString * _Nonnull)appKey authCode:(NSString * _Nullable)authCode delegate:(id <TGASDKDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
-/// open game Controller
-- (void)openGameCenterWithSecPageInfo:(TGAWebPageInfo * _Nullable)secPageInfo;
+/// \param delegate 委托
+///
+- (void)initSdkWithEnv:(NSString * _Nullable)env appKey:(NSString * _Nonnull)appKey authCode:(NSString * _Nullable)authCode delegate:(id <TGASdkDelegate> _Nonnull)delegate SWIFT_METHOD_FAMILY(none);
+/// 退出登录
+- (void)logout;
+/// 打开游戏中心控制器
+/// \param secUrl 打开游戏中心的同时再打开该网页，可用于打开游戏中心的同时跳到某一款游戏
+///
+- (void)openGameCenterWithSecUrl:(NSString * _Nullable)secUrl;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -632,45 +622,23 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASDK * _No
 @class NSError;
 
 /// MARK - TGASDK Delegate
-SWIFT_PROTOCOL("_TtP6TGASDK14TGASDKDelegate_")
-@protocol TGASDKDelegate <NSObject>
+SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
+@protocol TGASdkDelegate <NSObject>
 /// 初始化成功
 - (void)tgaSdkInitSucceed;
 /// 初始化失败
 /// \param error NSError
 ///
 - (void)tgaSdkInitError:(NSError * _Nonnull)error;
-/// 获取登录凭证code
-/// <ul>
-///   <li>
-///     Parameters: 事先需要调用自己服务端获取登录凭证code，传进本方法中，如果code返回null，游戏平台将以游客的身份登录
-///   </li>
-/// </ul>
+/// 获取登录凭证authCode
+/// 唤起app自身登录界面，当sdk是游客身份登录时，如果要充值，购买钻石等操作页面会弹出提示是否去登录，点击去登录回调
+/// \param completion 回传服务端获取登录凭证code
 ///
-/// returns:
-/// Code
-- (void)tgaSdkGetAuthCodeWithCompletion:(SWIFT_NOESCAPE void (^ _Nonnull)(NSString * _Nullable))completion;
+- (void)tgaSdkGetAuthCodeWithCompletion:(void (^ _Nonnull)(NSString * _Nullable))completion;
 /// 关闭游戏中心
 - (void)tgaSdkCloseGameCenter;
 /// 用户登出
 - (void)tgaSdkOnLogout;
-@end
-
-
-/// MARK - TGA WebPageInfo
-SWIFT_CLASS("_TtC6TGASDK14TGAWebPageInfo")
-@interface TGAWebPageInfo : NSObject
-/// 网页链接
-@property (nonatomic, copy) NSString * _Nonnull url;
-/// 是否隐藏导航栏
-@property (nonatomic) BOOL isHiddenNavigation;
-/// 导航栏背景颜色 默认为蓝色
-@property (nonatomic, strong) UIColor * _Nonnull navigationBarTintColor;
-/// 是否显示状态栏背景颜色
-@property (nonatomic) BOOL isShowStatusBar;
-/// 状态栏背景颜色
-@property (nonatomic, strong) UIColor * _Nullable statusBarBackgroundColor;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
 

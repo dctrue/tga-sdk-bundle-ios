@@ -11,7 +11,7 @@
 #import "ViewController.h"
 #import "TGASDK/TGASDK-Swift.h"
 
-@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, TGASDKDelegate>
+@interface ViewController ()<UITableViewDataSource, UITableViewDelegate, TGASdkDelegate>
 @property(strong, nonatomic) UITableView *tableView;
 @property(strong, nonatomic) NSArray<NSString*> *array;
 @end
@@ -53,24 +53,24 @@
     switch (indexPath.row) {
         case 0: {
             
-            TGASDK.shared.configuration.webTheme = @"regular";
-            TGASDK.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-            TGASDK.shared.configuration.navigationBarTintColor = [UIColor redColor];
-            TGASDK.shared.configuration.navigationTintColor = [UIColor whiteColor];
-            TGASDK.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
-            TGASDK.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
-            TGASDK.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
+            TGASdk.shared.configuration.webTheme = @"regular";
+            TGASdk.shared.configuration.lang = [NSLocale currentLocale].languageCode;
+            TGASdk.shared.configuration.navigationBarTintColor = [UIColor redColor];
+            TGASdk.shared.configuration.navigationTintColor = [UIColor whiteColor];
+            TGASdk.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
+            TGASdk.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
+            TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
             [tableView deselectRowAtIndexPath:indexPath animated:true];
             break;
         }
         case 1:
         {
-            [TGASDK.shared initSdkWithAppKey:@"" authCode:@"" delegate:self];
+            [TGASdk.shared initSdkWithEnv:nil appKey:@"" authCode:nil delegate:self];
             break;
         }
         default:
         {
-            [TGASDK.shared openGameCenterWithSecPageInfo:nil];
+            [TGASdk.shared openGameCenterWithSecUrl:nil];
             break;
         }
     }

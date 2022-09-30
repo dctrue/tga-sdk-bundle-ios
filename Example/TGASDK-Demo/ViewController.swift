@@ -85,32 +85,24 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch Row.allCases[indexPath.row] {
         case .config:
-            TGASDK.shared.configuration.webTheme = "orange"
-            TGASDK.shared.configuration.lang = "\(Locale.current.languageCode ?? "")"
-            TGASDK.shared.configuration.navigationBarTintColor = UIColor.red
-            TGASDK.shared.configuration.navigationTintColor = UIColor.white
-            TGASDK.shared.configuration.navigationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-            TGASDK.shared.configuration.statusBarStyle = .lightContent
-            TGASDK.shared.configuration.navigationBackImage = UIImage(named: "navigation_back_default")
+            TGASdk.shared.configuration.webTheme = "orange"
+            TGASdk.shared.configuration.lang = "\(Locale(identifier: NSLocale.preferredLanguages.first ?? "zh-Hans").languageCode ?? "")"
+            TGASdk.shared.configuration.navigationBarTintColor = UIColor.red
+            TGASdk.shared.configuration.navigationTintColor = UIColor.white
+            TGASdk.shared.configuration.navigationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            TGASdk.shared.configuration.statusBarStyle = .lightContent
+            TGASdk.shared.configuration.navigationBackImage = UIImage(named: "navigation_back_default")
         case .initTGA:
-            TGASDK.shared.initSdk(appKey: "", authCode: "", delegate: self)
+            TGASdk.shared.initSdk(env: nil, appKey: "", authCode: nil, delegate: self)
         case .openGameCenter:
-            
-            
-            let webPageInfo = TGAWebPageInfo()
-            webPageInfo.url = ""
-            webPageInfo.isHiddenNavigation = true
-            webPageInfo.navigationBarTintColor = UIColor.red
-            webPageInfo.isShowStatusBar = true
-            webPageInfo.statusBarBackgroundColor = UIColor.red
-            TGASDK.shared.openGameCenter(secPageInfo: webPageInfo)
+            TGASdk.shared.openGameCenter(secUrl: "")
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 /// MARK - TGASDKDelegate
-extension ViewController: TGASDKDelegate {
+extension ViewController: TGASdkDelegate {
     
     func tgaSdkInitSucceed() {
         debugPrint("初始化成功")

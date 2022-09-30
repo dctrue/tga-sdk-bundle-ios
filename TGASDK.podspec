@@ -21,9 +21,5 @@ Pod::Spec.new do |s|
   
   s.vendored_frameworks = "TGASDK/Classes/TGASDK.framework"
   s.dependency 'AppLovinSDK', '~> 11.4.4'
-  s.dependency 'AppLovinMediationAdColonyAdapter', '~> 4.9.0.0.2'
-  s.dependency 'AppLovinMediationIronSourceAdapter', '~> 7.2.4.0.0'
-  s.dependency 'AppLovinMediationUnityAdsAdapter', '~> 4.3.0.0'
-  s.dependency 'AppLovinMediationVungleAdapter', '~> 6.12.0.2'
   s.user_target_xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)' }
 end
