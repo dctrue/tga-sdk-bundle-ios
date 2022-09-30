@@ -5,6 +5,13 @@
 - Xcode 10.0+
 - Swift 5.0+
 
+
+## SDK接入准备
+接入前准备：
+
+- 首先需要到TGA开发者平台[创建APP](https://tga.just4fun.sg/tga-developer)，并完善应用的信息；
+- 新建应用成功之后点击管理，在`基本设置`中拿到对应的密钥（也就是下面初始化用的appkey）；
+
 ## 安装 
 
 TGASDK is available through [CocoaPods](https://cocoapods.org). To install
@@ -23,48 +30,50 @@ import TGASDK
 ### 基础配置
 ```Swift
 // 配置Web主题颜色 具体可以查看官方文档
-TGASDK.shared.configuration.webTheme = "orange"
+TGASdk.shared.configuration.webTheme = "orange"
 // 配置语言环境，默认为本机系统语言
-TGASDK.shared.configuration.lang = "\(Locale(identifier: NSLocale.preferredLanguages.first ?? "zh-Hans").languageCode ?? "")"
+TGASdk.shared.configuration.lang = "\(Locale(identifier: NSLocale.preferredLanguages.first ?? "zh-Hans").languageCode ?? "")"
 // 是否隐藏导航栏，默认不隐藏
-TGASDK.shared.configuration.isHiddenNavigation = false
+TGASdk.shared.configuration.isHiddenNavigation = false
 // 导航栏背景颜色
-TGASDK.shared.configuration.navigationBarTintColor = UIColor.red
+TGASdk.shared.configuration.navigationBarTintColor = UIColor.red
 // 导航栏Tint颜色
-TGASDK.shared.configuration.navigationTintColor = UIColor.white
+TGASdk.shared.configuration.navigationTintColor = UIColor.white
 // 导航栏标题属性
-TGASDK.shared.configuration.navifationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+TGASdk.shared.configuration.navifationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 // 状态栏风格
-TGASDK.shared.configuration.statusBarStyle = .lightContent
+TGASdk.shared.configuration.statusBarStyle = .lightContent
 // 返回按钮图标
-TGASDK.shared.configuration.navigationBackImage = UIImage()
+TGASdk.shared.configuration.navigationBackImage = UIImage()
 ```
 
 ### 初始化 TGASDK
 ```Swift
-// appkey: app对接密钥（TGA开发者平台 - 应用管理 - 管理 - 开发设置 - 基本设置中的密钥）
-// authCode: 调用自己服务端获取登录凭证code，传进本方法中，如果authCode返回null，游戏平台将以游客的身份登录
-TGASDK.shared.initSdk(appKey: "", authCode: "", delegate: self)
+TGASdk.shared.initSdk(env: nil, appKey: "", authCode: nil, delegate: self)
 ```
+|参数名|类型|说明|其他|
+|:----:|:----:|:----:|:----:|
+|env|String|sdk区分环境的唯一值,可以传null或者空字符|非必须|
+|appKey|String|app对接密钥<br />（TGA开发者平台 - 应用管理 - 管理 - 开发设置 - 基本设置中的密钥）|必须|
+|authCode|String|事先需要调用自己服务端获取登录凭证code，传进本方法中，如果code返回null，<br />游戏平台将以游客的身份登录|非必须|
+|delegate|TGASdkDelegate|回调接口|必须|
+
 ### 打开游戏中心
 ```Swift
 // 打开游戏中心方法必须在初始化SDK成功之后
-
-// 网页信息
-let webPageInfo = TGAWebPageInfo()
-// 地址
-webPageInfo.url = "url"
-// 是否隐藏导航栏
-webPageInfo.isHiddenNavigation = true
-// 导航栏颜色
-webPageInfo.navigationBarTintColor = UIColor.red
-// 是否显示状态栏背景颜色
-webPageInfo.isShowStatusBar = true
-// 状态栏背景颜色
-webPageInfo.statusBarBackgroundColor = UIColor.red
-// 打开游戏中心，secPageInfo可空
-TGASDK.shared.openGameCenter(secPageInfo: webPageInfo)
+TGASdk.shared.openGameCenter(secUrl: "")
 ```
+|参数名|类型|说明|其他|
+|:----:|:----:|:----:|:----:|
+|secUrl|String|打开游戏中心的同时再打开该网页，可用于打开游戏中心的同时跳到某一款游戏|非必填|
+
+
+### 退出登录
+```Swift
+// 当app退登时，清除sdk数据并赋予游客身份
+TGASdk.shared.logout()
+```
+
 
 ### 委托回调方法
 ```Swift
@@ -99,25 +108,29 @@ func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
 
 ### 基础配置 TGASDK
 ```objc
-TGASDK.shared.configuration.webTheme = @"regular";
-TGASDK.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-TGASDK.shared.configuration.lang.isHiddenNavigation = false;
-TGASDK.shared.configuration.navigationBarTintColor = [UIColor redColor];
-TGASDK.shared.configuration.navigationTintColor = [UIColor whiteColor];
-TGASDK.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
-TGASDK.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
-TGASDK.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
+TGASdk.shared.configuration.webTheme = @"regular";
+TGASdk.shared.configuration.lang = [NSLocale currentLocale].languageCode;
+TGASdk.shared.configuration.lang.isHiddenNavigation = false;
+TGASdk.shared.configuration.navigationBarTintColor = [UIColor redColor];
+TGASdk.shared.configuration.navigationTintColor = [UIColor whiteColor];
+TGASdk.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
+TGASdk.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
+TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
 ```
 ### 初始化 TGASDK
 ```objc    
-// appkey: app对接密钥（TGA开发者平台 - 应用管理 - 管理 - 开发设置 - 基本设置中的密钥）
-// authCode: 调用自己服务端获取登录凭证code，传进本方法中，如果authCode返回null，游戏平台将以游客的身份登录
-[TGASDK.shared initSdkWithAppKey:@"" authCode:@"" delegate:self];
+[TGASdk.shared initSdkWithEnv:nil appKey:@"" authCode:nil delegate:self];
 ```
 
 ### 打开游戏中心
 ```objc
-[TGASDK.shared openGameCenterWithSecPageInfo:nil];
+[TGASdk.shared openGameCenterWithSecUrl:nil];
+```
+
+### 退出登录
+```objc
+// 当app退登时，清除sdk数据并赋予游客身份
+[TGASdk.shared logout];
 ```
 
 ### 委托回调方法
@@ -142,6 +155,24 @@ TGASDK.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigati
     NSLog(@"调用自己服务端获取登录凭证code，回调传进本方法中，如果authCode返回null，游戏平台将以游客的身份登录")
 }
 ```
+
+### 广告播放功能
+
+接入前准备：
+
+1.确保填入TGA开发者平台包名准确性
+
+2.联系我们商务人员来配置广告播放功能相关数据（主要是向商务人员提供app包名，根据app包名由我们商务人员来配置广告位以及各类广告占比，确认是否打开或者关闭此功能）
+
+
+```Swift
+//  以下为可选项，详细可联系商务
+pod 'AppLovinMediationAdColonyAdapter', '~> 4.9.0.0.2'
+pod 'AppLovinMediationIronSourceAdapter', '~> 7.2.4.0.0'
+pod 'AppLovinMediationUnityAdsAdapter', '~> 4.3.0.0'
+pod 'AppLovinMediationVungleAdapter', '~> 6.12.0.2'
+```
+
 
 ## License
 

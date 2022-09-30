@@ -29,32 +29,33 @@ import TGASDK
 
 ### Config TGASDK
 ```Swift
-TGASDK.shared.configuration.webTheme = "orange"
-TGASDK.shared.configuration.lang = "\(Locale.current.languageCode ?? "")"
-TGASDK.shared.configuration.isHiddenNavigation = false
-TGASDK.shared.configuration.navigationBarTintColor = UIColor.red
-TGASDK.shared.configuration.navigationTintColor = UIColor.white
-TGASDK.shared.configuration.navigationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-TGASDK.shared.configuration.statusBarStyle = .lightContent
-TGASDK.shared.configuration.navigationBackImage = UIImage()
+TGASdk.shared.configuration.webTheme = "orange"
+TGASdk.shared.configuration.lang = "\(Locale.current.languageCode ?? "")"
+TGASdk.shared.configuration.isHiddenNavigation = false
+TGASdk.shared.configuration.navigationBarTintColor = UIColor.red
+TGASdk.shared.configuration.navigationTintColor = UIColor.white
+TGASdk.shared.configuration.navigationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+TGASdk.shared.configuration.statusBarStyle = .lightContent
+TGASdk.shared.configuration.navigationBackImage = UIImage()
 ```
 
 ### Init TGASDK
 ```Swift
+// env: default is empty
 // appkey: SDK key to use for the instance of the TGASDK SDK
 // authCode: Call your own server to get the login credential authCode
-TGASDK.shared.initSdk(appKey: "", authCode: "", delegate: self)
+TGASdk.shared.initSdk(env: nil, appKey: "", authCode: nil, delegate: self)
 ```
 ### Open GameCenter
 ```Swift
-let webPageInfo = TGAWebPageInfo()
-webPageInfo.url = ""
-webPageInfo.isHiddenNavigation = true
-webPageInfo.navigationBarTintColor = UIColor.red
-webPageInfo.isShowStatusBar = true
-webPageInfo.statusBarBackgroundColor = UIColor.red
-TGASDK.shared.openGameCenter(secPageInfo: webPageInfo)
+TGASdk.shared.openGameCenter(secUrl: "")
 ```
+
+### Logout
+```Swift
+TGASdk.shared.logout()
+```
+
 
 ### Delegate
 ```Swift
@@ -89,25 +90,28 @@ func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
 ### Config TGASDK
 ```objc
 // TGASDK config attribute
-TGASDK.shared.configuration.webTheme = @"regular";
-TGASDK.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-TGASDK.shared.configuration.isHiddenNavigation = false;
-TGASDK.shared.configuration.navigationBarTintColor = [UIColor redColor];
-TGASDK.shared.configuration.navigationTintColor = [UIColor whiteColor];
-TGASDK.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
-TGASDK.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
-TGASDK.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
+TGASdk.shared.configuration.webTheme = @"regular";
+TGASdk.shared.configuration.lang = [NSLocale currentLocale].languageCode;
+TGASdk.shared.configuration.isHiddenNavigation = false;
+TGASdk.shared.configuration.navigationBarTintColor = [UIColor redColor];
+TGASdk.shared.configuration.navigationTintColor = [UIColor whiteColor];
+TGASdk.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
+TGASdk.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
+TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
 ```
 ### Init TGASDK
 ```objc    
-// appkey: SDK key to use for the instance of the TGASDK SDK
-// authCode: Call your own server to get the login credential authCode
-[TGASDK.shared initSdkWithAppKey:@"" authCode:@"" delegate:self];
+[TGASdk.shared initSdkWithEnv:nil appKey:@"" authCode:nil delegate:self];
 ```
 
 ### Open GameCenter
 ```objc
-[TGASDK.shared openGameCenterWithSecPageInfo:nil];
+[TGASdk.shared openGameCenterWithSecUrl:nil];
+```
+
+### Logout
+```objc
+[TGASdk.shared logout];
 ```
 
 ### Delegate
