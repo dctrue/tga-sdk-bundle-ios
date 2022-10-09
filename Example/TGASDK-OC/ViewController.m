@@ -87,7 +87,7 @@
 }
 
 -(void)tgaSdkGetAuthCodeWithCompletion:(void (^)(NSString * _Nullable))completion {
-    NSLog(@"callback, authCode: Call your own server to get the login credential authCode")
+    NSLog(@"callback, authCode: Call your own server to get the login credential authCode");
 }
 
 -(void)tgaSdkCloseGameCenter {
@@ -95,7 +95,7 @@
 }
 
 -(void)tgaSdkOnLogout {
-    NSLog(@"sdkOnLogout")
+    NSLog(@"sdkOnLogout");
 }
 
 
