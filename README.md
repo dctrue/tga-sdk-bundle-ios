@@ -29,12 +29,8 @@ import TGASDK
 
 ### Config TGASDK
 ```Swift
-TGASdk.shared.configuration.webTheme = "orange"
 TGASdk.shared.configuration.lang = "\(Locale.current.languageCode ?? "")"
-TGASdk.shared.configuration.isHiddenNavigation = false
-TGASdk.shared.configuration.navigationBarTintColor = UIColor.red
 TGASdk.shared.configuration.navigationTintColor = UIColor.white
-TGASdk.shared.configuration.navigationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 TGASdk.shared.configuration.statusBarStyle = .lightContent
 TGASdk.shared.configuration.navigationBackImage = UIImage()
 ```
@@ -48,7 +44,7 @@ TGASdk.shared.initSdk(env: nil, appKey: "", authCode: nil, delegate: self)
 ```
 ### Open GameCenter
 ```Swift
-TGASdk.shared.openGameCenter(secUrl: "")
+TGASdk.shared.openGameCenter(secUrl: "", secTitle: "")
 ```
 
 ### Logout
@@ -90,12 +86,8 @@ func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
 ### Config TGASDK
 ```objc
 // TGASDK config attribute
-TGASdk.shared.configuration.webTheme = @"regular";
 TGASdk.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-TGASdk.shared.configuration.isHiddenNavigation = false;
-TGASdk.shared.configuration.navigationBarTintColor = [UIColor redColor];
 TGASdk.shared.configuration.navigationTintColor = [UIColor whiteColor];
-TGASdk.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
 TGASdk.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
 TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
 ```
@@ -106,7 +98,7 @@ TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigati
 
 ### Open GameCenter
 ```objc
-[TGASdk.shared openGameCenterWithSecUrl:nil];
+[TGASdk.shared openGameCenterWithSecUrl:nil secTitle:nil];
 ```
 
 ### Logout

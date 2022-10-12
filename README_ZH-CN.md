@@ -29,18 +29,10 @@ import TGASDK
 
 ### 基础配置
 ```Swift
-// 配置Web主题颜色 具体可以查看官方文档
-TGASdk.shared.configuration.webTheme = "orange"
 // 配置语言环境，默认为本机系统语言
 TGASdk.shared.configuration.lang = "\(Locale(identifier: NSLocale.preferredLanguages.first ?? "zh-Hans").languageCode ?? "")"
-// 是否隐藏导航栏，默认不隐藏
-TGASdk.shared.configuration.isHiddenNavigation = false
-// 导航栏背景颜色
-TGASdk.shared.configuration.navigationBarTintColor = UIColor.red
 // 导航栏Tint颜色
 TGASdk.shared.configuration.navigationTintColor = UIColor.white
-// 导航栏标题属性
-TGASdk.shared.configuration.navifationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 // 状态栏风格
 TGASdk.shared.configuration.statusBarStyle = .lightContent
 // 返回按钮图标
@@ -61,12 +53,12 @@ TGASdk.shared.initSdk(env: nil, appKey: "", authCode: nil, delegate: self)
 ### 打开游戏中心
 ```Swift
 // 打开游戏中心方法必须在初始化SDK成功之后
-TGASdk.shared.openGameCenter(secUrl: "")
+TGASdk.shared.openGameCenter(secUrl: "", secTitle: "")
 ```
 |参数名|类型|说明|其他|
 |:----:|:----:|:----:|:----:|
 |secUrl|String|打开游戏中心的同时再打开该网页，可用于打开游戏中心的同时跳到某一款游戏|非必填|
-
+|secTitle|String|游戏页面标题|非必填|
 
 ### 退出登录
 ```Swift
@@ -108,12 +100,9 @@ func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
 
 ### 基础配置 TGASDK
 ```objc
-TGASdk.shared.configuration.webTheme = @"regular";
 TGASdk.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-TGASdk.shared.configuration.lang.isHiddenNavigation = false;
 TGASdk.shared.configuration.navigationBarTintColor = [UIColor redColor];
 TGASdk.shared.configuration.navigationTintColor = [UIColor whiteColor];
-TGASdk.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
 TGASdk.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
 TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
 ```
@@ -124,7 +113,7 @@ TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigati
 
 ### 打开游戏中心
 ```objc
-[TGASdk.shared openGameCenterWithSecUrl:nil];
+[TGASdk.shared openGameCenterWithSecUrl:nil secTitle:nil];
 ```
 
 ### 退出登录
