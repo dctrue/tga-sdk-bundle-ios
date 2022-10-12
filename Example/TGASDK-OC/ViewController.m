@@ -53,11 +53,7 @@
     switch (indexPath.row) {
         case 0: {
             
-            TGASdk.shared.configuration.webTheme = @"regular";
             TGASdk.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-            TGASdk.shared.configuration.navigationBarTintColor = [UIColor redColor];
-            TGASdk.shared.configuration.navigationTintColor = [UIColor whiteColor];
-            TGASdk.shared.configuration.navigationTitleTextAttributes = @{NSForegroundColorAttributeName: UIColor.whiteColor};
             TGASdk.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
             TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
             [tableView deselectRowAtIndexPath:indexPath animated:true];
@@ -70,7 +66,7 @@
         }
         default:
         {
-            [TGASdk.shared openGameCenterWithSecUrl:nil];
+            [TGASdk.shared openGameCenterWithSecUrl:nil secTitle:nil];
             break;
         }
     }

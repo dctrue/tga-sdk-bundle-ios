@@ -1,0 +1,11 @@
+framework module TGASDK {
+  umbrella header "TGASDK-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module TGASDK.Swift {
+    header "TGASDK-Swift.h"
+    requires objc
+}

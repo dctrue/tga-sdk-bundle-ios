@@ -85,17 +85,14 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch Row.allCases[indexPath.row] {
         case .config:
-            TGASdk.shared.configuration.webTheme = "orange"
+            
             TGASdk.shared.configuration.lang = "\(Locale(identifier: NSLocale.preferredLanguages.first ?? "zh-Hans").languageCode ?? "")"
-            TGASdk.shared.configuration.navigationBarTintColor = UIColor.red
-            TGASdk.shared.configuration.navigationTintColor = UIColor.white
-            TGASdk.shared.configuration.navigationTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
             TGASdk.shared.configuration.statusBarStyle = .lightContent
             TGASdk.shared.configuration.navigationBackImage = UIImage(named: "navigation_back_default")
         case .initTGA:
             TGASdk.shared.initSdk(env: nil, appKey: "", authCode: nil, delegate: self)
         case .openGameCenter:
-            TGASdk.shared.openGameCenter(secUrl: "")
+            TGASdk.shared.openGameCenter(secUrl: nil, secTitle: nil)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
