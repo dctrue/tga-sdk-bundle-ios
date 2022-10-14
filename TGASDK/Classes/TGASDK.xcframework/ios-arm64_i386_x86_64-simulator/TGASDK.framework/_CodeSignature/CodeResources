@@ -18,15 +18,15 @@
 		</data>
 		<key>Modules/TGASDK.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		ofT/vTLQ+IJgynISZXi0G+q+K/Y=
+		FqUKH58u8AQ55qhWlHIGFXRbKUk=
 		</data>
 		<key>Modules/TGASDK.swiftmodule/Project/i386-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		lVb6TzH2b72hZLDh8og6yEp60NM=
+		XEBxoHMILglSDnBCfkGA7VtysJw=
 		</data>
 		<key>Modules/TGASDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		cNZ9L8KFCAA8maLAqSw0eRnBrIc=
+		rbCMBmFSPyQKiqUjJU7lZn+CzmY=
 		</data>
 		<key>Modules/TGASDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -97,33 +97,33 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ofT/vTLQ+IJgynISZXi0G+q+K/Y=
+			FqUKH58u8AQ55qhWlHIGFXRbKUk=
 			</data>
 			<key>hash2</key>
 			<data>
-			u9ZTAnPXNPb324sk96DD1jYyLq3FcqIJKRDxlvqd90A=
+			Z9NF/PgCyGfEq0l1joiHBmhgUB0k0EHVjR4hSUtNGGs=
 			</data>
 		</dict>
 		<key>Modules/TGASDK.swiftmodule/Project/i386-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lVb6TzH2b72hZLDh8og6yEp60NM=
+			XEBxoHMILglSDnBCfkGA7VtysJw=
 			</data>
 			<key>hash2</key>
 			<data>
-			WdIT8SklzRpssWswLhW+oLJ/If0DzXgO5mITn8UfMk8=
+			lluFtcSKqL4WOkmeoQP+TsRfxTYHmolnBwxt0quZlWs=
 			</data>
 		</dict>
 		<key>Modules/TGASDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			cNZ9L8KFCAA8maLAqSw0eRnBrIc=
+			rbCMBmFSPyQKiqUjJU7lZn+CzmY=
 			</data>
 			<key>hash2</key>
 			<data>
-			2XusmhHt0JTluyPQaKZkGBOSW3laOqwTF2R/ZGKOgw8=
+			lNaqqbo9OLGwLYvnKWHpe2mJB2VtNXy2ttC9RecB3qk=
 			</data>
 		</dict>
 		<key>Modules/TGASDK.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
