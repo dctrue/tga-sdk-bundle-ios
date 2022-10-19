@@ -6,7 +6,6 @@ import Dispatch
 import Foundation
 import LocalAuthentication
 import MobileCoreServices
-import ObjectiveC
 import Security
 import Swift
 import SystemConfiguration
@@ -17,7 +16,6 @@ import WebKit
 import _Concurrency
 @_inheritsConvenienceInitializers @objc public class TGAConfiguration : ObjectiveC.NSObject {
   @objc public var lang: Swift.String
-  @objc public var navigationTintColor: UIKit.UIColor
   @objc public var statusBarStyle: UIKit.UIStatusBarStyle
   @objc public var navigationBackImage: UIKit.UIImage?
   @objc override dynamic public init()
@@ -39,8 +37,3 @@ import _Concurrency
   @objc override dynamic public init()
   @objc deinit
 }
-extension UIKit.UINavigationController {
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewWillLayoutSubviews()
-  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLayoutSubviews()
-}
-infix operator <=> : DefaultPrecedence

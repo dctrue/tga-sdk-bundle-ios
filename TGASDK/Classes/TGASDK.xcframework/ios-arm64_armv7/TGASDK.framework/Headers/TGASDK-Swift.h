@@ -224,10 +224,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
-
 @class NSString;
-@class UIColor;
 @class UIImage;
 
 /// MARK - TGA configuration
@@ -235,8 +232,6 @@ SWIFT_CLASS("_TtC6TGASDK16TGAConfiguration")
 @interface TGAConfiguration : NSObject
 /// 默认本地语言
 @property (nonatomic, copy) NSString * _Nonnull lang;
-/// 导航栏 TintColor 默认为白色
-@property (nonatomic, strong) UIColor * _Nonnull navigationTintColor;
 /// statusBarStyle default ‘lightContent’
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
 /// 导航栏返回图片
@@ -297,25 +292,6 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 /// 用户登出
 - (void)tgaSdkOnLogout;
 @end
-
-
-
-
-
-
-
-
-
-@interface UINavigationController (SWIFT_EXTENSION(TGASDK))
-- (void)viewWillLayoutSubviews;
-- (void)viewDidLayoutSubviews;
-@end
-
-
-
-
-
-
 
 
 
@@ -553,10 +529,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 
-
-
 @class NSString;
-@class UIColor;
 @class UIImage;
 
 /// MARK - TGA configuration
@@ -564,8 +537,6 @@ SWIFT_CLASS("_TtC6TGASDK16TGAConfiguration")
 @interface TGAConfiguration : NSObject
 /// 默认本地语言
 @property (nonatomic, copy) NSString * _Nonnull lang;
-/// 导航栏 TintColor 默认为白色
-@property (nonatomic, strong) UIColor * _Nonnull navigationTintColor;
 /// statusBarStyle default ‘lightContent’
 @property (nonatomic) UIStatusBarStyle statusBarStyle;
 /// 导航栏返回图片
@@ -626,25 +597,6 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 /// 用户登出
 - (void)tgaSdkOnLogout;
 @end
-
-
-
-
-
-
-
-
-
-@interface UINavigationController (SWIFT_EXTENSION(TGASDK))
-- (void)viewWillLayoutSubviews;
-- (void)viewDidLayoutSubviews;
-@end
-
-
-
-
-
-
 
 
 
