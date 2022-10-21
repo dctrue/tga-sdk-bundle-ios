@@ -30,7 +30,6 @@ import TGASDK
 ### Config TGASDK
 ```Swift
 TGASdk.shared.configuration.lang = "\(Locale.current.languageCode ?? "")"
-TGASdk.shared.configuration.navigationTintColor = UIColor.white
 TGASdk.shared.configuration.statusBarStyle = .lightContent
 TGASdk.shared.configuration.navigationBackImage = UIImage()
 ```
@@ -87,7 +86,6 @@ func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
 ```objc
 // TGASDK config attribute
 TGASdk.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-TGASdk.shared.configuration.navigationTintColor = [UIColor whiteColor];
 TGASdk.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
 TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
 ```

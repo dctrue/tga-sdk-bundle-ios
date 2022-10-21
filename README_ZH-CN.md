@@ -31,8 +31,6 @@ import TGASDK
 ```Swift
 // 配置语言环境，默认为本机系统语言
 TGASdk.shared.configuration.lang = "\(Locale(identifier: NSLocale.preferredLanguages.first ?? "zh-Hans").languageCode ?? "")"
-// 导航栏Tint颜色
-TGASdk.shared.configuration.navigationTintColor = UIColor.white
 // 状态栏风格
 TGASdk.shared.configuration.statusBarStyle = .lightContent
 // 返回按钮图标
@@ -101,8 +99,6 @@ func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
 ### 基础配置 TGASDK
 ```objc
 TGASdk.shared.configuration.lang = [NSLocale currentLocale].languageCode;
-TGASdk.shared.configuration.navigationBarTintColor = [UIColor redColor];
-TGASdk.shared.configuration.navigationTintColor = [UIColor whiteColor];
 TGASdk.shared.configuration.statusBarStyle = UIStatusBarStyleLightContent;
 TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigation_back_default"];
 ```
