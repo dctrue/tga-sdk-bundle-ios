@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TGASDK'
-  s.version          = '1.0.3'
+  s.version          = '1.0.4'
   s.summary          = 'TGASDK SDK for iOS'
 
   s.homepage         = 'https://github.com/dctrue/tga-sdk-bundle-ios'
@@ -21,5 +21,4 @@ Pod::Spec.new do |s|
   
   s.vendored_frameworks = "TGASDK/Classes/TGASDK.xcframework"
   s.dependency 'AppLovinSDK', '~> 11.5.1'
-  s.user_target_xcconfig = { 'LIBRARY_SEARCH_PATHS' => '$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)' }
 end
