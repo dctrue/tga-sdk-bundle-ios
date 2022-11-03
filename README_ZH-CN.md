@@ -39,24 +39,25 @@ TGASdk.shared.configuration.navigationBackImage = UIImage()
 
 ### 初始化 TGASDK
 ```Swift
-TGASdk.shared.initSdk(env: nil, appKey: "", authCode: nil, delegate: self)
+TGASdk.shared.initSdk(env: nil, appKey: "", userInfo: nil, delegate: self)
 ```
 |参数名|类型|说明|其他|
 |:----:|:----:|:----:|:----:|
 |env|String|sdk区分环境的唯一值,可以传null或者空字符|非必须|
 |appKey|String|app对接密钥<br />（TGA开发者平台 - 应用管理 - 管理 - 开发设置 - 基本设置中的密钥）|必须|
-|authCode|String|事先需要调用自己服务端获取登录凭证code，传进本方法中，如果code返回null，<br />游戏平台将以游客的身份登录|非必须|
+|userInfo|String|用户信息，如果userInfo返回null，<br />游戏平台将以游客的身份登录|非必须|
 |delegate|TGASdkDelegate|回调接口|必须|
 
 ### 打开游戏中心
 ```Swift
 // 打开游戏中心方法必须在初始化SDK成功之后
-TGASdk.shared.openGameCenter(secUrl: "", secTitle: "")
+TGASdk.shared.openGameCenter(secUrl: "", secTitle: ""， theme: nil)
 ```
 |参数名|类型|说明|其他|
 |:----:|:----:|:----:|:----:|
 |secUrl|String|打开游戏中心的同时再打开该网页，可用于打开游戏中心的同时跳到某一款游戏|非必填|
 |secTitle|String|游戏页面标题|非必填|
+|theme|String|游戏主题|非必填|
 
 ### 退出登录
 ```Swift
@@ -83,8 +84,8 @@ func tgaSdkCloseGameCenter() {
    debugPrint("关闭游戏中心回调")
 }
 
-func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
-   debugPrint("调用自己服务端获取登录凭证code，回调传进本方法中，如果authCode返回null，游戏平台将以游客的身份登录")
+func tgaSdkGetUserInfo(completion: @escaping ((TGAUserInfo?) -> Void)) {
+   debugPrint("获取用户信息")
 }
 
 ```
@@ -104,12 +105,12 @@ TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigati
 ```
 ### 初始化 TGASDK
 ```objc    
-[TGASdk.shared initSdkWithEnv:nil appKey:@"" authCode:nil delegate:self];
+[TGASdk.shared initSdkWithEnv:nil appKey:@"" userInfo:nil delegate:self];
 ```
 
 ### 打开游戏中心
 ```objc
-[TGASdk.shared openGameCenterWithSecUrl:nil secTitle:nil];
+[TGASdk.shared openGameCenterWithSecUrl:nil secTitle:nil theme: nil];
 ```
 
 ### 退出登录
@@ -136,8 +137,8 @@ TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigati
     NSLog(@"关闭游戏中心回调");
 }
 
--(void)tgaSdkGetAuthCodeWithCompletion:(void (^)(NSString * _Nullable))completion {
-    NSLog(@"调用自己服务端获取登录凭证code，回调传进本方法中，如果authCode返回null，游戏平台将以游客的身份登录")
+-(void)tgaSdkGetUserInfoWithCompletion:(void (^ _Nonnull)(TGAUserInfo * _Nullable))completion {
+    NSLog(@"获取用户信息");
 }
 ```
 

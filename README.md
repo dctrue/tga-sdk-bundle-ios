@@ -38,8 +38,8 @@ TGASdk.shared.configuration.navigationBackImage = UIImage()
 ```Swift
 // env: default is empty
 // appkey: SDK key to use for the instance of the TGASDK SDK
-// authCode: Call your own server to get the login credential authCode
-TGASdk.shared.initSdk(env: nil, appKey: "", authCode: nil, delegate: self)
+// userInfo: user information userId, userName, avatar
+TGASdk.shared.initSdk(env: nil, appKey: "", userInfo: nil, delegate: self)
 ```
 ### Open GameCenter
 ```Swift
@@ -70,8 +70,8 @@ func tgaSdkCloseGameCenter() {
    debugPrint("close game Controller")
 }
 
-func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
-   debugPrint("authCode: Call your own server to get the login credential authCode")
+func tgaSdkGetUserInfo(completion: @escaping ((TGAUserInfo?) -> Void)) {
+   debugPrint("TGAUserInfo: user information userId, userName, avatar")
 }
 
 ```
@@ -91,7 +91,7 @@ TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigati
 ```
 ### Init TGASDK
 ```objc    
-[TGASdk.shared initSdkWithEnv:nil appKey:@"" authCode:nil delegate:self];
+[TGASdk.shared initSdkWithEnv:nil appKey:@"" userInfo:nil delegate:self];
 ```
 
 ### Open GameCenter
@@ -122,8 +122,8 @@ TGASdk.shared.configuration.navigationBackImage = [UIImage imageNamed:@"navigati
     NSLog(@"close game Controller");
 }
 
--(void)tgaSdkGetAuthCodeWithCompletion:(void (^)(NSString * _Nullable))completion {
-    NSLog(@"callback, authCode: Call your own server to get the login credential authCode")
+-(void)tgaSdkGetUserInfoWithCompletion:(void (^ _Nonnull)(TGAUserInfo * _Nullable))completion {
+    NSLog(@"TGAUserInfo: user information userId, userName, avatar")
 }
 
 ```
