@@ -61,12 +61,12 @@
         }
         case 1:
         {
-            [TGASdk.shared initSdkWithEnv:nil appKey:@"" authCode:nil delegate:self];
+            [TGASdk.shared initSdkWithEnv:nil appKey:@"" userInfo:nil delegate:self];
             break;
         }
         default:
         {
-            [TGASdk.shared openGameCenterWithSecUrl:nil secTitle:nil];
+            [TGASdk.shared openGameCenterWithSecUrl:nil secTitle:nil theme: nil];
             break;
         }
     }
@@ -82,8 +82,8 @@
     NSLog(@"%@", [[NSString alloc] initWithFormat:@"%@%@", @"error reason: ", error.localizedDescription]);
 }
 
--(void)tgaSdkGetAuthCodeWithCompletion:(void (^)(NSString * _Nullable))completion {
-    NSLog(@"callback, authCode: Call your own server to get the login credential authCode");
+-(void)tgaSdkGetUserInfoWithCompletion:(void (^ _Nonnull)(TGAUserInfo * _Nullable))completion {
+    NSLog(@"TGAUserInfo: user information userId, userName, avatar");
 }
 
 -(void)tgaSdkCloseGameCenter {

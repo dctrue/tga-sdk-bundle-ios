@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TGASDK'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = 'TGASDK SDK for iOS'
 
   s.homepage         = 'https://github.com/dctrue/tga-sdk-bundle-ios'

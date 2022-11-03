@@ -90,7 +90,7 @@ extension ViewController: UITableViewDelegate {
             TGASdk.shared.configuration.statusBarStyle = .lightContent
             TGASdk.shared.configuration.navigationBackImage = UIImage(named: "navigation_back_default")
         case .initTGA:
-            TGASdk.shared.initSdk(env: nil, appKey: "", authCode: nil, delegate: self)
+            TGASdk.shared.initSdk(env: "", appKey: "", userInfo: nil, delegate: self)
         case .openGameCenter:
             TGASdk.shared.openGameCenter(secUrl: nil, secTitle: nil)
         }
@@ -100,6 +100,10 @@ extension ViewController: UITableViewDelegate {
 
 /// MARK - TGASDKDelegate
 extension ViewController: TGASdkDelegate {
+    func tgaSdkGetUserInfo(completion: @escaping ((TGASDK.TGAUserInfo?) -> Void)) {
+        debugPrint("获取用户信息")
+    }
+    
     
     func tgaSdkInitSucceed() {
         debugPrint("初始化成功")
@@ -115,9 +119,5 @@ extension ViewController: TGASdkDelegate {
     
     func tgaSdkCloseGameCenter() {
         debugPrint("关闭游戏中心")
-    }
-    
-    func tgaSdkGetAuthCode(completion: ((String?) -> Void)) {
-        debugPrint("获取授权AuthCode")
     }
 }

@@ -1,0 +1,546 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)
+// swift-module-flags: -target x86_64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name TGASDK
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AppLovinSDK
+import Combine
+import Dispatch
+import Foundation
+import LocalAuthentication
+import MobileCoreServices
+import Security
+import Swift
+import SystemConfiguration
+@_exported import TGASDK
+import UIKit
+import UniformTypeIdentifiers
+import WebKit
+import _Concurrency
+import _StringProcessing
+extension Swift.Array {
+  @inlinable internal init(reserveCapacity: Swift.Int) {
+    self = Array<Element>()
+    self.reserveCapacity(reserveCapacity)
+  }
+  @inlinable internal var slice: Swift.ArraySlice<Element> {
+    get {
+    self[self.startIndex ..< self.endIndex]
+  }
+  }
+  @inlinable internal subscript(safe index: Swift.Array<Element>.Index) -> Element? {
+    get {
+    return indices.contains(index) ? self[index] : nil
+  }
+  }
+}
+public struct BlockModeOption : Swift.OptionSet {
+  public let rawValue: Swift.Int
+  public init(rawValue: Swift.Int)
+  @usableFromInline
+  internal static let none: TGASDK.BlockModeOption
+  @usableFromInline
+  internal static let initializationVectorRequired: TGASDK.BlockModeOption
+  @usableFromInline
+  internal static let paddingRequired: TGASDK.BlockModeOption
+  @usableFromInline
+  internal static let useEncryptToDecrypt: TGASDK.BlockModeOption
+  public typealias ArrayLiteralElement = TGASDK.BlockModeOption
+  public typealias Element = TGASDK.BlockModeOption
+  public typealias RawValue = Swift.Int
+}
+public typealias CipherOperationOnBlock = (_ block: Swift.ArraySlice<Swift.UInt8>) -> Swift.Array<Swift.UInt8>?
+public protocol BlockMode {
+  var options: TGASDK.BlockModeOption { get }
+  @inlinable func worker(blockSize: Swift.Int, cipherOperation: @escaping TGASDK.CipherOperationOnBlock, encryptionOperation: @escaping TGASDK.CipherOperationOnBlock) throws -> TGASDK.CipherModeWorker
+  var customBlockSize: Swift.Int? { get }
+}
+public protocol CipherModeWorker {
+  var cipherOperation: TGASDK.CipherOperationOnBlock { get }
+  var additionalBufferSize: Swift.Int { get }
+  @inlinable mutating func encrypt(block plaintext: Swift.ArraySlice<Swift.UInt8>) -> Swift.Array<Swift.UInt8>
+  @inlinable mutating func decrypt(block ciphertext: Swift.ArraySlice<Swift.UInt8>) -> Swift.Array<Swift.UInt8>
+}
+public protocol BlockModeWorker : TGASDK.CipherModeWorker {
+  var blockSize: Swift.Int { get }
+}
+public protocol CounterModeWorker : TGASDK.CipherModeWorker {
+  associatedtype Counter
+  var counter: Self.Counter { get set }
+}
+public protocol SeekableModeWorker : TGASDK.CipherModeWorker {
+  mutating func seek(to position: Swift.Int) throws
+}
+public protocol StreamModeWorker : TGASDK.CipherModeWorker {
+}
+public protocol FinalizingEncryptModeWorker : TGASDK.CipherModeWorker {
+  mutating func finalize(encrypt ciphertext: Swift.ArraySlice<Swift.UInt8>) throws -> Swift.ArraySlice<Swift.UInt8>
+}
+public protocol FinalizingDecryptModeWorker : TGASDK.CipherModeWorker {
+  @discardableResult
+  mutating func willDecryptLast(bytes ciphertext: Swift.ArraySlice<Swift.UInt8>) throws -> Swift.ArraySlice<Swift.UInt8>
+  mutating func didDecryptLast(bytes plaintext: Swift.ArraySlice<Swift.UInt8>) throws -> Swift.ArraySlice<Swift.UInt8>
+  mutating func finalize(decrypt plaintext: Swift.ArraySlice<Swift.UInt8>) throws -> Swift.ArraySlice<Swift.UInt8>
+}
+public enum PKCS5 {
+}
+public protocol PaddingProtocol {
+  func add(to: Swift.Array<Swift.UInt8>, blockSize: Swift.Int) -> Swift.Array<Swift.UInt8>
+  func remove(from: Swift.Array<Swift.UInt8>, blockSize: Swift.Int?) -> Swift.Array<Swift.UInt8>
+}
+public enum Padding : TGASDK.PaddingProtocol {
+  case noPadding, pkcs5
+  public func add(to: Swift.Array<Swift.UInt8>, blockSize: Swift.Int) -> Swift.Array<Swift.UInt8>
+  public func remove(from: Swift.Array<Swift.UInt8>, blockSize: Swift.Int?) -> Swift.Array<Swift.UInt8>
+  public static func == (a: TGASDK.Padding, b: TGASDK.Padding) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@usableFromInline
+internal struct BatchedCollectionIndex<Base> where Base : Swift.Collection {
+}
+extension TGASDK.BatchedCollectionIndex : Swift.Comparable {
+  @usableFromInline
+  internal static func == <Base>(lhs: TGASDK.BatchedCollectionIndex<Base>, rhs: TGASDK.BatchedCollectionIndex<Base>) -> Swift.Bool where Base : Swift.Collection
+  @usableFromInline
+  internal static func < <Base>(lhs: TGASDK.BatchedCollectionIndex<Base>, rhs: TGASDK.BatchedCollectionIndex<Base>) -> Swift.Bool where Base : Swift.Collection
+}
+@usableFromInline
+internal struct BatchedCollection<Base> : Swift.Collection where Base : Swift.Collection {
+  @usableFromInline
+  internal init(base: Base, size: Swift.Int)
+  @usableFromInline
+  internal typealias Index = TGASDK.BatchedCollectionIndex<Base>
+  @usableFromInline
+  internal var startIndex: TGASDK.BatchedCollection<Base>.Index {
+    get
+  }
+  @usableFromInline
+  internal var endIndex: TGASDK.BatchedCollection<Base>.Index {
+    get
+  }
+  @usableFromInline
+  internal func index(after idx: TGASDK.BatchedCollection<Base>.Index) -> TGASDK.BatchedCollection<Base>.Index
+  @usableFromInline
+  internal subscript(idx: TGASDK.BatchedCollection<Base>.Index) -> Base.SubSequence {
+    get
+  }
+  @usableFromInline
+  internal typealias Element = Base.SubSequence
+  @usableFromInline
+  internal typealias Indices = Swift.DefaultIndices<TGASDK.BatchedCollection<Base>>
+  @usableFromInline
+  internal typealias Iterator = Swift.IndexingIterator<TGASDK.BatchedCollection<Base>>
+  @usableFromInline
+  internal typealias SubSequence = Swift.Slice<TGASDK.BatchedCollection<Base>>
+}
+extension Swift.Collection {
+  @inlinable internal func batched(by size: Swift.Int) -> TGASDK.BatchedCollection<Self> {
+    BatchedCollection(base: self, size: size)
+  }
+}
+public protocol Cryptors : AnyObject {
+  func makeEncryptor() throws -> TGASDK.Cryptor & TGASDK.Updatable
+  func makeDecryptor() throws -> TGASDK.Cryptor & TGASDK.Updatable
+  static func randomIV(_ blockSize: Swift.Int) -> Swift.Array<Swift.UInt8>
+}
+extension TGASDK.Cryptors {
+  public static func randomIV(_ count: Swift.Int) -> Swift.Array<Swift.UInt8>
+}
+public protocol Cryptor {
+  mutating func seek(to: Swift.Int) throws
+}
+public protocol Updatable {
+  mutating func update(withBytes bytes: Swift.ArraySlice<Swift.UInt8>, isLast: Swift.Bool) throws -> Swift.Array<Swift.UInt8>
+  mutating func update(withBytes bytes: Swift.ArraySlice<Swift.UInt8>, isLast: Swift.Bool, output: (_ bytes: Swift.Array<Swift.UInt8>) -> Swift.Void) throws
+}
+extension TGASDK.Updatable {
+  @inlinable public mutating func update(withBytes bytes: Swift.ArraySlice<Swift.UInt8>, isLast: Swift.Bool = false, output: (_ bytes: Swift.Array<Swift.UInt8>) -> Swift.Void) throws {
+    let processed = try update(withBytes: bytes, isLast: isLast)
+    if !processed.isEmpty {
+      output(processed)
+    }
+  }
+  @inlinable public mutating func update(withBytes bytes: Swift.ArraySlice<Swift.UInt8>, isLast: Swift.Bool = false) throws -> Swift.Array<Swift.UInt8> {
+    try self.update(withBytes: bytes, isLast: isLast)
+  }
+  @inlinable public mutating func update(withBytes bytes: Swift.Array<Swift.UInt8>, isLast: Swift.Bool = false) throws -> Swift.Array<Swift.UInt8> {
+    try self.update(withBytes: bytes.slice, isLast: isLast)
+  }
+  @inlinable public mutating func update(withBytes bytes: Swift.Array<Swift.UInt8>, isLast: Swift.Bool = false, output: (_ bytes: Swift.Array<Swift.UInt8>) -> Swift.Void) throws {
+    try self.update(withBytes: bytes.slice, isLast: isLast, output: output)
+  }
+  @inlinable public mutating func finish(withBytes bytes: Swift.ArraySlice<Swift.UInt8>) throws -> Swift.Array<Swift.UInt8> {
+    try self.update(withBytes: bytes, isLast: true)
+  }
+  @inlinable public mutating func finish(withBytes bytes: Swift.Array<Swift.UInt8>) throws -> Swift.Array<Swift.UInt8> {
+    try self.finish(withBytes: bytes.slice)
+  }
+  @inlinable public mutating func finish() throws -> Swift.Array<Swift.UInt8> {
+    try self.update(withBytes: [], isLast: true)
+  }
+  @inlinable public mutating func finish(withBytes bytes: Swift.ArraySlice<Swift.UInt8>, output: (_ bytes: Swift.Array<Swift.UInt8>) -> Swift.Void) throws {
+    let processed = try update(withBytes: bytes, isLast: true)
+    if !processed.isEmpty {
+      output(processed)
+    }
+  }
+  @inlinable public mutating func finish(withBytes bytes: Swift.Array<Swift.UInt8>, output: (_ bytes: Swift.Array<Swift.UInt8>) -> Swift.Void) throws {
+    try self.finish(withBytes: bytes.slice, output: output)
+  }
+  @inlinable public mutating func finish(output: (Swift.Array<Swift.UInt8>) -> Swift.Void) throws {
+    try self.finish(withBytes: [], output: output)
+  }
+}
+@usableFromInline
+final internal class StreamEncryptor : TGASDK.Cryptor, TGASDK.Updatable {
+  @usableFromInline
+  final internal let blockSize: Swift.Int
+  @usableFromInline
+  final internal var worker: TGASDK.CipherModeWorker
+  @usableFromInline
+  final internal let padding: TGASDK.Padding
+  @usableFromInline
+  final internal var lastBlockRemainder: Swift.Int
+  @usableFromInline
+  internal init(blockSize: Swift.Int, padding: TGASDK.Padding, _ worker: TGASDK.CipherModeWorker) throws
+  @inlinable final public func update(withBytes bytes: Swift.ArraySlice<Swift.UInt8>, isLast: Swift.Bool) throws -> Swift.Array<Swift.UInt8> {
+    var accumulated = Array(bytes)
+    if isLast {
+      // CTR doesn't need padding. Really. Add padding to the last block if really want. but... don't.
+      accumulated = self.padding.add(to: accumulated, blockSize: self.blockSize - self.lastBlockRemainder)
+    }
+
+    var encrypted = Array<UInt8>(reserveCapacity: bytes.count)
+    for chunk in accumulated.batched(by: self.blockSize) {
+      encrypted += self.worker.encrypt(block: chunk)
+    }
+
+    // omit unecessary calculation if not needed
+    if self.padding != .noPadding {
+      self.lastBlockRemainder = encrypted.count.quotientAndRemainder(dividingBy: self.blockSize).remainder
+    }
+
+    if var finalizingWorker = worker as? FinalizingEncryptModeWorker, isLast == true {
+      encrypted = Array(try finalizingWorker.finalize(encrypt: encrypted.slice))
+    }
+
+    return encrypted
+  }
+  @usableFromInline
+  final internal func seek(to: Swift.Int) throws
+  @objc @usableFromInline
+  deinit
+}
+@usableFromInline
+final internal class BlockEncryptor : TGASDK.Cryptor, TGASDK.Updatable {
+  @usableFromInline
+  internal init(blockSize: Swift.Int, padding: TGASDK.Padding, _ worker: TGASDK.CipherModeWorker) throws
+  final public func update(withBytes bytes: Swift.ArraySlice<Swift.UInt8>, isLast: Swift.Bool) throws -> Swift.Array<Swift.UInt8>
+  @usableFromInline
+  final internal func seek(to: Swift.Int) throws
+  @objc @usableFromInline
+  deinit
+}
+@usableFromInline
+final internal class StreamDecryptor : TGASDK.Cryptor, TGASDK.Updatable {
+  @usableFromInline
+  final internal let blockSize: Swift.Int
+  @usableFromInline
+  final internal var worker: TGASDK.CipherModeWorker
+  @usableFromInline
+  final internal let padding: TGASDK.Padding
+  @usableFromInline
+  final internal var accumulated: [Swift.UInt8]
+  @usableFromInline
+  final internal var lastBlockRemainder: Swift.Int
+  @usableFromInline
+  internal init(blockSize: Swift.Int, padding: TGASDK.Padding, _ worker: TGASDK.CipherModeWorker) throws
+  @inlinable final public func update(withBytes bytes: Swift.ArraySlice<Swift.UInt8>, isLast: Swift.Bool) throws -> Swift.Array<Swift.UInt8> {
+    self.accumulated += bytes
+
+    let toProcess = self.accumulated.prefix(max(self.accumulated.count - self.worker.additionalBufferSize, 0))
+
+    if var finalizingWorker = worker as? FinalizingDecryptModeWorker, isLast == true {
+      // will truncate suffix if needed
+      try finalizingWorker.willDecryptLast(bytes: self.accumulated.slice)
+    }
+
+    var processedBytesCount = 0
+    var plaintext = Array<UInt8>(reserveCapacity: bytes.count + self.worker.additionalBufferSize)
+    for chunk in toProcess.batched(by: self.blockSize) {
+      plaintext += self.worker.decrypt(block: chunk)
+      processedBytesCount += chunk.count
+    }
+
+    if var finalizingWorker = worker as? FinalizingDecryptModeWorker, isLast == true {
+      plaintext = Array(try finalizingWorker.didDecryptLast(bytes: plaintext.slice))
+    }
+
+    // omit unecessary calculation if not needed
+    if self.padding != .noPadding {
+      self.lastBlockRemainder = plaintext.count.quotientAndRemainder(dividingBy: self.blockSize).remainder
+    }
+
+    if isLast {
+      // CTR doesn't need padding. Really. Add padding to the last block if really want. but... don't.
+      plaintext = self.padding.remove(from: plaintext, blockSize: self.blockSize - self.lastBlockRemainder)
+    }
+
+    self.accumulated.removeFirst(processedBytesCount) // super-slow
+
+    if var finalizingWorker = worker as? FinalizingDecryptModeWorker, isLast == true {
+      plaintext = Array(try finalizingWorker.finalize(decrypt: plaintext.slice))
+    }
+
+    return plaintext
+  }
+  @inlinable final public func seek(to position: Swift.Int) throws {
+    guard var worker = self.worker as? SeekableModeWorker else {
+      fatalError("Not supported")
+    }
+
+    try worker.seek(to: position)
+    self.worker = worker
+  }
+  @objc @usableFromInline
+  deinit
+}
+public class BlockDecryptor : TGASDK.Cryptor, TGASDK.Updatable {
+  @usableFromInline
+  final internal let blockSize: Swift.Int
+  @usableFromInline
+  final internal let padding: TGASDK.Padding
+  @usableFromInline
+  internal var worker: TGASDK.CipherModeWorker
+  @usableFromInline
+  internal var accumulated: [Swift.UInt8]
+  @usableFromInline
+  internal init(blockSize: Swift.Int, padding: TGASDK.Padding, _ worker: TGASDK.CipherModeWorker) throws
+  @inlinable public func update(withBytes bytes: Swift.ArraySlice<Swift.UInt8>, isLast: Swift.Bool = false) throws -> Swift.Array<Swift.UInt8> {
+    self.accumulated += bytes
+
+    // If a worker (eg GCM) can combine ciphertext + tag
+    // we need to remove tag from the ciphertext.
+    if !isLast && self.accumulated.count < self.blockSize + self.worker.additionalBufferSize {
+      return []
+    }
+
+    let accumulatedWithoutSuffix: Array<UInt8>
+    if self.worker.additionalBufferSize > 0 {
+      // FIXME: how slow is that?
+      accumulatedWithoutSuffix = Array(self.accumulated.prefix(self.accumulated.count - self.worker.additionalBufferSize))
+    } else {
+      accumulatedWithoutSuffix = self.accumulated
+    }
+
+    var processedBytesCount = 0
+    var plaintext = Array<UInt8>(reserveCapacity: accumulatedWithoutSuffix.count)
+    // Processing in a block-size manner. It's good for block modes, but bad for stream modes.
+    for var chunk in accumulatedWithoutSuffix.batched(by: self.blockSize) {
+      if isLast || (accumulatedWithoutSuffix.count - processedBytesCount) >= blockSize {
+        let isLastChunk = processedBytesCount + chunk.count == accumulatedWithoutSuffix.count
+
+        if isLast, isLastChunk, var finalizingWorker = worker as? FinalizingDecryptModeWorker {
+          chunk = try finalizingWorker.willDecryptLast(bytes: chunk + accumulated.suffix(worker.additionalBufferSize)) // tag size
+        }
+
+        if !chunk.isEmpty {
+          plaintext += worker.decrypt(block: chunk)
+        }
+
+        if isLast, isLastChunk, var finalizingWorker = worker as? FinalizingDecryptModeWorker {
+          plaintext = Array(try finalizingWorker.didDecryptLast(bytes: plaintext.slice))
+        }
+
+        processedBytesCount += chunk.count
+      }
+    }
+    accumulated.removeFirst(processedBytesCount) // super-slow
+
+    if isLast {
+      if accumulatedWithoutSuffix.isEmpty, var finalizingWorker = worker as? FinalizingDecryptModeWorker {
+        try finalizingWorker.willDecryptLast(bytes: self.accumulated.suffix(self.worker.additionalBufferSize))
+        plaintext = Array(try finalizingWorker.didDecryptLast(bytes: plaintext.slice))
+      }
+      plaintext = self.padding.remove(from: plaintext, blockSize: self.blockSize)
+    }
+
+    return plaintext
+  }
+  public func seek(to position: Swift.Int) throws
+  @objc deinit
+}
+@inlinable internal func rotateLeft(_ value: Swift.UInt8, by: Swift.UInt8) -> Swift.UInt8 {
+  ((value << by) & 0xff) | (value >> (8 - by))
+}
+@inlinable internal func rotateLeft(_ value: Swift.UInt16, by: Swift.UInt16) -> Swift.UInt16 {
+  ((value << by) & 0xffff) | (value >> (16 - by))
+}
+@inlinable internal func rotateLeft(_ value: Swift.UInt32, by: Swift.UInt32) -> Swift.UInt32 {
+  ((value << by) & 0xffffffff) | (value >> (32 - by))
+}
+@inlinable internal func rotateLeft(_ value: Swift.UInt64, by: Swift.UInt64) -> Swift.UInt64 {
+  (value << by) | (value >> (64 - by))
+}
+@inlinable internal func rotateRight(_ value: Swift.UInt16, by: Swift.UInt16) -> Swift.UInt16 {
+  (value >> by) | (value << (16 - by))
+}
+@inlinable internal func rotateRight(_ value: Swift.UInt32, by: Swift.UInt32) -> Swift.UInt32 {
+  (value >> by) | (value << (32 - by))
+}
+@inlinable internal func rotateRight(_ value: Swift.UInt64, by: Swift.UInt64) -> Swift.UInt64 {
+  ((value >> by) | (value << (64 - by)))
+}
+@inlinable internal func reversed(_ uint8: Swift.UInt8) -> Swift.UInt8 {
+  var v = uint8
+  v = (v & 0xf0) >> 4 | (v & 0x0f) << 4
+  v = (v & 0xcc) >> 2 | (v & 0x33) << 2
+  v = (v & 0xaa) >> 1 | (v & 0x55) << 1
+  return v
+}
+@inlinable internal func reversed(_ uint32: Swift.UInt32) -> Swift.UInt32 {
+  var v = uint32
+  v = ((v >> 1) & 0x55555555) | ((v & 0x55555555) << 1)
+  v = ((v >> 2) & 0x33333333) | ((v & 0x33333333) << 2)
+  v = ((v >> 4) & 0x0f0f0f0f) | ((v & 0x0f0f0f0f) << 4)
+  v = ((v >> 8) & 0x00ff00ff) | ((v & 0x00ff00ff) << 8)
+  v = ((v >> 16) & 0xffff) | ((v & 0xffff) << 16)
+  return v
+}
+@inlinable internal func xor<T, V>(_ left: T, _ right: V) -> Swift.ArraySlice<Swift.UInt8> where T : Swift.RandomAccessCollection, V : Swift.RandomAccessCollection, T.Element == Swift.UInt8, T.Index == Swift.Int, V.Element == Swift.UInt8, V.Index == Swift.Int {
+  return xor(left, right).slice
+}
+@inlinable internal func xor<T, V>(_ left: T, _ right: V) -> Swift.Array<Swift.UInt8> where T : Swift.RandomAccessCollection, V : Swift.RandomAccessCollection, T.Element == Swift.UInt8, T.Index == Swift.Int, V.Element == Swift.UInt8, V.Index == Swift.Int {
+  let length = Swift.min(left.count, right.count)
+
+  let buf = UnsafeMutablePointer<UInt8>.allocate(capacity: length)
+  buf.initialize(repeating: 0, count: length)
+  defer {
+    buf.deinitialize(count: length)
+    buf.deallocate()
+  }
+
+  // xor
+  for i in 0..<length {
+    buf[i] = left[left.startIndex.advanced(by: i)] ^ right[right.startIndex.advanced(by: i)]
+  }
+
+  return Array(UnsafeBufferPointer(start: buf, count: length))
+}
+@inline(__always) @inlinable internal func bitPadding(to data: inout Swift.Array<Swift.UInt8>, blockSize: Swift.Int, allowance: Swift.Int = 0) {
+  let msgLength = data.count
+  // Step 1. Append Padding Bits
+  // append one bit (UInt8 with one bit) to message
+  data.append(0x80)
+
+  // Step 2. append "0" bit until message length in bits ≡ 448 (mod 512)
+  let max = blockSize - allowance // 448, 986
+  if msgLength % blockSize < max { // 448
+    data += Array<UInt8>(repeating: 0, count: max - 1 - (msgLength % blockSize))
+  } else {
+    data += Array<UInt8>(repeating: 0, count: blockSize + max - 1 - (msgLength % blockSize))
+  }
+}
+extension Swift.FixedWidthInteger {
+  @inlinable internal func bytes(totalBytes: Swift.Int = MemoryLayout<Self>.size) -> Swift.Array<Swift.UInt8> {
+    arrayOfBytes(value: self.littleEndian, length: totalBytes)
+    // TODO: adjust bytes order
+    // var value = self.littleEndian
+    // return withUnsafeBytes(of: &value, Array.init).reversed()
+  }
+}
+@_specialize(exported: false, kind: full, where T == Swift.Int)
+@_specialize(exported: false, kind: full, where T == Swift.UInt)
+@_specialize(exported: false, kind: full, where T == Swift.UInt8)
+@_specialize(exported: false, kind: full, where T == Swift.UInt16)
+@_specialize(exported: false, kind: full, where T == Swift.UInt32)
+@_specialize(exported: false, kind: full, where T == Swift.UInt64)
+@inlinable internal func arrayOfBytes<T>(value: T, length totalBytes: Swift.Int = MemoryLayout<T>.size) -> Swift.Array<Swift.UInt8> where T : Swift.FixedWidthInteger {
+  let valuePointer = UnsafeMutablePointer<T>.allocate(capacity: 1)
+  valuePointer.pointee = value
+
+  let bytesPointer = UnsafeMutablePointer<UInt8>(OpaquePointer(valuePointer))
+  var bytes = Array<UInt8>(repeating: 0, count: totalBytes)
+  for j in 0..<min(MemoryLayout<T>.size, totalBytes) {
+    bytes[totalBytes - 1 - j] = (bytesPointer + j).pointee
+  }
+
+  valuePointer.deinitialize(count: 1)
+  valuePointer.deallocate()
+
+  return bytes
+}
+extension Swift.UInt32 {
+  @_specialize(exported: false, kind: full, where T == Swift.ArraySlice<Swift.UInt8>)
+  @inlinable internal init<T>(bytes: T, fromIndex index: T.Index) where T : Swift.Collection, T.Element == Swift.UInt8, T.Index == Swift.Int {
+    if bytes.isEmpty {
+      self = 0
+      return
+    }
+
+    let count = bytes.count
+
+    let val0 = count > 0 ? UInt32(bytes[index.advanced(by: 0)]) << 24 : 0
+    let val1 = count > 1 ? UInt32(bytes[index.advanced(by: 1)]) << 16 : 0
+    let val2 = count > 2 ? UInt32(bytes[index.advanced(by: 2)]) << 8 : 0
+    let val3 = count > 3 ? UInt32(bytes[index.advanced(by: 3)]) : 0
+
+    self = val0 | val1 | val2 | val3
+  }
+}
+public struct ECB : TGASDK.BlockMode {
+  public let options: TGASDK.BlockModeOption
+  public let customBlockSize: Swift.Int?
+  public init()
+  public func worker(blockSize: Swift.Int, cipherOperation: @escaping TGASDK.CipherOperationOnBlock, encryptionOperation: @escaping TGASDK.CipherOperationOnBlock) throws -> TGASDK.CipherModeWorker
+}
+extension Swift.String {
+  @inlinable public var bytes: Swift.Array<Swift.UInt8> {
+    get {
+        data(using: String.Encoding.utf8, allowLossyConversion: true)?.bytes ?? Array(utf8)
+    }
+  }
+}
+extension Foundation.Data {
+  public var bytes: Swift.Array<Swift.UInt8> {
+    get
+  }
+}
+extension Swift.Array where Element == Swift.UInt8 {
+  public func toBase64() -> Swift.String
+  public init(base64: Swift.String)
+}
+@_inheritsConvenienceInitializers @objc public class TGAConfiguration : ObjectiveC.NSObject {
+  @objc public var lang: Swift.String
+  @objc public var statusBarStyle: UIKit.UIStatusBarStyle
+  @objc public var navigationBackImage: UIKit.UIImage?
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc public class TGAUserInfo : ObjectiveC.NSObject {
+  public var userId: Swift.String
+  public var nickname: Swift.String
+  public var avatar: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public protocol TGASdkDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func tgaSdkInitSucceed()
+  @objc func tgaSdkInitError(_ error: Foundation.NSError)
+  @objc func tgaSdkGetUserInfo(completion: @escaping ((TGASDK.TGAUserInfo?) -> Swift.Void))
+  @objc func tgaSdkCloseGameCenter()
+  @objc func tgaSdkOnLogout()
+}
+@_inheritsConvenienceInitializers @objc public class TGASdk : ObjectiveC.NSObject {
+  @objc public static let shared: TGASDK.TGASdk
+  @objc public var configuration: TGASDK.TGAConfiguration
+  @objc public func initSdk(env: Swift.String? = nil, appKey: Swift.String, userInfo: TGASDK.TGAUserInfo? = nil, delegate: TGASDK.TGASdkDelegate)
+  @objc public func logout()
+  @objc public func openGameCenter(secUrl: Swift.String? = nil, secTitle: Swift.String? = nil, theme: Swift.String? = nil)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension TGASDK.Padding : Swift.Equatable {}
+extension TGASDK.Padding : Swift.Hashable {}
