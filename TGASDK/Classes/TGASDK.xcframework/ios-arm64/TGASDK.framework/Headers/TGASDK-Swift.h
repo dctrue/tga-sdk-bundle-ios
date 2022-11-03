@@ -336,6 +336,12 @@ SWIFT_PROTOCOL("_TtP6TGASDK14TGASdkDelegate_")
 /// MARK - User Info
 SWIFT_CLASS("_TtC6TGASDK11TGAUserInfo")
 @interface TGAUserInfo : NSObject
+/// 用户Id
+@property (nonatomic, copy) NSString * _Nonnull userId;
+/// 用户昵称
+@property (nonatomic, copy) NSString * _Nonnull nickname;
+/// 用户头像
+@property (nonatomic, copy) NSString * _Nonnull avatar;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

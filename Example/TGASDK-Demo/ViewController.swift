@@ -100,10 +100,11 @@ extension ViewController: UITableViewDelegate {
 
 /// MARK - TGASDKDelegate
 extension ViewController: TGASdkDelegate {
+    
     func tgaSdkGetUserInfo(completion: @escaping ((TGASDK.TGAUserInfo?) -> Void)) {
         debugPrint("获取用户信息")
     }
-    
+
     
     func tgaSdkInitSucceed() {
         debugPrint("初始化成功")
