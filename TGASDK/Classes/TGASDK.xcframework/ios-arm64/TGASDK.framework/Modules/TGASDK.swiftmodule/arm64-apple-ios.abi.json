@@ -6177,12 +6177,12 @@
       "kind": "StringLiteral",
       "offset": 375,
       "length": 7,
-      "value": "\"1.0.4\""
+      "value": "\"1.1.0\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAConstant.swift",
       "kind": "StringLiteral",
-      "offset": 753,
+      "offset": 761,
       "length": 13,
       "value": "\"com.tga.sdk\""
     },
@@ -15037,266 +15037,252 @@
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1680,
+      "offset": 1633,
       "length": 7,
       "value": "\"appId\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1711,
+      "offset": 1664,
       "length": 9,
       "value": "\"appName\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1748,
+      "offset": 1701,
       "length": 13,
       "value": "\"packageName\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1786,
-      "length": 10,
-      "value": "\"iconpath\""
-    },
-    {
-      "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
-      "kind": "StringLiteral",
-      "offset": 1831,
+      "offset": 1749,
       "length": 11,
       "value": "\"appConfig\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1927,
+      "offset": 1845,
       "length": 15,
       "value": "\"gameCentreUrl\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1927,
+      "offset": 1845,
       "length": 15,
       "value": "\"gameCentreUrl\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1680,
+      "offset": 1633,
       "length": 7,
       "value": "\"appId\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1711,
+      "offset": 1664,
       "length": 9,
       "value": "\"appName\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1748,
+      "offset": 1701,
       "length": 13,
       "value": "\"packageName\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 1786,
-      "length": 10,
-      "value": "\"iconpath\""
-    },
-    {
-      "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
-      "kind": "StringLiteral",
-      "offset": 1831,
+      "offset": 1749,
       "length": 11,
       "value": "\"appConfig\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4068,
+      "offset": 3896,
       "length": 6,
       "value": "\"data\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4156,
+      "offset": 3984,
       "length": 5,
       "value": "\"yim\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4156,
+      "offset": 3984,
       "length": 5,
       "value": "\"yim\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4258,
+      "offset": 4086,
       "length": 8,
       "value": "\"appKey\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4296,
+      "offset": 4124,
       "length": 11,
       "value": "\"secretKey\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4258,
+      "offset": 4086,
       "length": 8,
       "value": "\"appKey\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4296,
+      "offset": 4124,
       "length": 11,
       "value": "\"secretKey\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 4068,
+      "offset": 3896,
       "length": 6,
       "value": "\"data\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5537,
+      "offset": 5366,
       "length": 13,
       "value": "\"accessToken\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5579,
+      "offset": 5408,
       "length": 14,
       "value": "\"refreshToken\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5614,
+      "offset": 5443,
       "length": 6,
       "value": "\"user\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5712,
+      "offset": 5541,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5741,
+      "offset": 5570,
       "length": 6,
       "value": "\"coin\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5774,
+      "offset": 5603,
       "length": 8,
       "value": "\"energy\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5808,
+      "offset": 5637,
       "length": 7,
       "value": "\"txnId\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5840,
+      "offset": 5669,
       "length": 6,
       "value": "\"name\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5873,
+      "offset": 5702,
       "length": 8,
       "value": "\"header\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5712,
+      "offset": 5541,
       "length": 4,
       "value": "\"id\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5741,
+      "offset": 5570,
       "length": 6,
       "value": "\"coin\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5774,
+      "offset": 5603,
       "length": 8,
       "value": "\"energy\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5808,
+      "offset": 5637,
       "length": 7,
       "value": "\"txnId\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5840,
+      "offset": 5669,
       "length": 6,
       "value": "\"name\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5873,
+      "offset": 5702,
       "length": 8,
       "value": "\"header\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5537,
+      "offset": 5366,
       "length": 13,
       "value": "\"accessToken\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5579,
+      "offset": 5408,
       "length": 14,
       "value": "\"refreshToken\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAModel.swift",
       "kind": "StringLiteral",
-      "offset": 5614,
+      "offset": 5443,
       "length": 6,
       "value": "\"user\""
     },

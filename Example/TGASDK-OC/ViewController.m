@@ -82,7 +82,7 @@
     NSLog(@"%@", [[NSString alloc] initWithFormat:@"%@%@", @"error reason: ", error.localizedDescription]);
 }
 
--(void)tgaSdkGetUserInfoWithCompletion:(void (^ _Nonnull)(TGAUserInfo * _Nullable))completion {
+-(void)tgaSdkGetUserInfoWithCompletion:(void (^)(TGAUserInfo * _Nullable))completion {
     NSLog(@"TGAUserInfo: user information userId, userName, avatar");
 }
 
