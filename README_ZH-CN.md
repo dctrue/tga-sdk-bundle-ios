@@ -90,6 +90,12 @@ func tgaSdkGetUserInfo(completion: @escaping ((TGAUserInfo?) -> Void)) {
 
 ```
 
+### 打印日志
+```Swift
+TGASdk.shared.setLogLevel(level: .all)
+```
+
+
 
 ## objc 使用方法
 ```objc

@@ -24,6 +24,19 @@ import _StringProcessing
   @objc override dynamic public init()
   @objc deinit
 }
+@objc public enum TGALogLevel : Swift.Int {
+  case off = 1
+  case error = 2
+  case info = 3
+  case debug = 4
+  case warning = 5
+  case all = 6
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
 @_inheritsConvenienceInitializers @objc public class TGAUserInfo : ObjectiveC.NSObject {
   @objc public var userId: Swift.String
   @objc public var nickname: Swift.String
@@ -44,6 +57,10 @@ import _StringProcessing
   @objc public func initSdk(env: Swift.String? = nil, appKey: Swift.String, userInfo: TGASDK.TGAUserInfo? = nil, delegate: TGASDK.TGASdkDelegate)
   @objc public func logout()
   @objc public func openGameCenter(secUrl: Swift.String? = nil, secTitle: Swift.String? = nil, theme: Swift.String? = nil)
+  @objc public func setLogLevel(level: TGASDK.TGALogLevel)
   @objc override dynamic public init()
   @objc deinit
 }
+extension TGASDK.TGALogLevel : Swift.Equatable {}
+extension TGASDK.TGALogLevel : Swift.Hashable {}
+extension TGASDK.TGALogLevel : Swift.RawRepresentable {}

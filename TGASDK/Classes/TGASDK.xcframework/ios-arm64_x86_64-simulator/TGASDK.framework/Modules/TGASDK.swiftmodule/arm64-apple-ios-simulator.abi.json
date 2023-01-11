@@ -864,6 +864,379 @@
         "moduleName": "TGASDK"
       },
       {
+        "kind": "TypeDecl",
+        "name": "TGALogLevel",
+        "printedName": "TGALogLevel",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "off",
+            "printedName": "off",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.TGALogLevel.Type) -> TGASDK.TGALogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TGALogLevel",
+                    "printedName": "TGASDK.TGALogLevel",
+                    "usr": "c:@M@TGASDK@E@TGALogLevel"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.TGALogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TGALogLevel",
+                        "printedName": "TGASDK.TGALogLevel",
+                        "usr": "c:@M@TGASDK@E@TGALogLevel"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@TGASDK@E@TGALogLevel@TGALogLevelOff",
+            "mangledName": "$s6TGASDK11TGALogLevelO3offyA2CmF",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 0
+          },
+          {
+            "kind": "Var",
+            "name": "error",
+            "printedName": "error",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.TGALogLevel.Type) -> TGASDK.TGALogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TGALogLevel",
+                    "printedName": "TGASDK.TGALogLevel",
+                    "usr": "c:@M@TGASDK@E@TGALogLevel"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.TGALogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TGALogLevel",
+                        "printedName": "TGASDK.TGALogLevel",
+                        "usr": "c:@M@TGASDK@E@TGALogLevel"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@TGASDK@E@TGALogLevel@TGALogLevelError",
+            "mangledName": "$s6TGASDK11TGALogLevelO5erroryA2CmF",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 1
+          },
+          {
+            "kind": "Var",
+            "name": "info",
+            "printedName": "info",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.TGALogLevel.Type) -> TGASDK.TGALogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TGALogLevel",
+                    "printedName": "TGASDK.TGALogLevel",
+                    "usr": "c:@M@TGASDK@E@TGALogLevel"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.TGALogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TGALogLevel",
+                        "printedName": "TGASDK.TGALogLevel",
+                        "usr": "c:@M@TGASDK@E@TGALogLevel"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@TGASDK@E@TGALogLevel@TGALogLevelInfo",
+            "mangledName": "$s6TGASDK11TGALogLevelO4infoyA2CmF",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 2
+          },
+          {
+            "kind": "Var",
+            "name": "debug",
+            "printedName": "debug",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.TGALogLevel.Type) -> TGASDK.TGALogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TGALogLevel",
+                    "printedName": "TGASDK.TGALogLevel",
+                    "usr": "c:@M@TGASDK@E@TGALogLevel"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.TGALogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TGALogLevel",
+                        "printedName": "TGASDK.TGALogLevel",
+                        "usr": "c:@M@TGASDK@E@TGALogLevel"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@TGASDK@E@TGALogLevel@TGALogLevelDebug",
+            "mangledName": "$s6TGASDK11TGALogLevelO5debugyA2CmF",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 3
+          },
+          {
+            "kind": "Var",
+            "name": "warning",
+            "printedName": "warning",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.TGALogLevel.Type) -> TGASDK.TGALogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TGALogLevel",
+                    "printedName": "TGASDK.TGALogLevel",
+                    "usr": "c:@M@TGASDK@E@TGALogLevel"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.TGALogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TGALogLevel",
+                        "printedName": "TGASDK.TGALogLevel",
+                        "usr": "c:@M@TGASDK@E@TGALogLevel"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@TGASDK@E@TGALogLevel@TGALogLevelWarning",
+            "mangledName": "$s6TGASDK11TGALogLevelO7warningyA2CmF",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 4
+          },
+          {
+            "kind": "Var",
+            "name": "all",
+            "printedName": "all",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(TGASDK.TGALogLevel.Type) -> TGASDK.TGALogLevel",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TGALogLevel",
+                    "printedName": "TGASDK.TGALogLevel",
+                    "usr": "c:@M@TGASDK@E@TGALogLevel"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "TGASDK.TGALogLevel.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "TGALogLevel",
+                        "printedName": "TGASDK.TGALogLevel",
+                        "usr": "c:@M@TGASDK@E@TGALogLevel"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "c:@M@TGASDK@E@TGALogLevel@TGALogLevelAll",
+            "mangledName": "$s6TGASDK11TGALogLevelO3allyA2CmF",
+            "moduleName": "TGASDK",
+            "declAttributes": [
+              "ObjC"
+            ],
+            "fixedbinaryorder": 5
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "TGASDK.TGALogLevel?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "TGALogLevel",
+                    "printedName": "TGASDK.TGALogLevel",
+                    "usr": "c:@M@TGASDK@E@TGALogLevel"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:6TGASDK11TGALogLevelO8rawValueACSgSi_tcfc",
+            "mangledName": "$s6TGASDK11TGALogLevelO8rawValueACSgSi_tcfc",
+            "moduleName": "TGASDK",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:6TGASDK11TGALogLevelO8rawValueSivp",
+            "mangledName": "$s6TGASDK11TGALogLevelO8rawValueSivp",
+            "moduleName": "TGASDK",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:6TGASDK11TGALogLevelO8rawValueSivg",
+                "mangledName": "$s6TGASDK11TGALogLevelO8rawValueSivg",
+                "moduleName": "TGASDK",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "c:@M@TGASDK@E@TGALogLevel",
+        "mangledName": "$s6TGASDK11TGALogLevelO",
+        "moduleName": "TGASDK",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC",
+          "RawDocComment"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
         "kind": "Import",
         "name": "Foundation",
         "printedName": "Foundation",
@@ -1814,6 +2187,35 @@
             "mangledName": "$s6TGASDK6TGASdkC14openGameCenter6secUrl0F5Title5themeySSSg_A2HtF",
             "moduleName": "TGASDK",
             "objc_name": "openGameCenterWithSecUrl:secTitle:theme:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setLogLevel",
+            "printedName": "setLogLevel(level:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "TGALogLevel",
+                "printedName": "TGASDK.TGALogLevel",
+                "usr": "c:@M@TGASDK@E@TGALogLevel"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@TGASDK@objc(cs)TGASdk(im)setLogLevelWithLevel:",
+            "mangledName": "$s6TGASDK6TGASdkC11setLogLevel5levelyAA06TGALogE0O_tF",
+            "moduleName": "TGASDK",
+            "objc_name": "setLogLevelWithLevel:",
             "declAttributes": [
               "AccessControl",
               "ObjC",
@@ -6177,7 +6579,7 @@
       "kind": "StringLiteral",
       "offset": 375,
       "length": 7,
-      "value": "\"1.1.0\""
+      "value": "\"1.2.0\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAConstant.swift",
@@ -14792,133 +15194,91 @@
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 434,
+      "offset": 438,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 453,
+      "offset": 457,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 471,
+      "offset": 475,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 490,
+      "offset": 494,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 511,
+      "offset": 515,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 528,
+      "offset": 532,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 434,
+      "offset": 438,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 453,
+      "offset": 457,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 471,
+      "offset": 475,
       "length": 1,
       "value": "3"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 490,
+      "offset": 494,
       "length": 1,
       "value": "4"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 511,
+      "offset": 515,
       "length": 1,
       "value": "5"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "IntegerLiteral",
-      "offset": 528,
-      "length": 1,
-      "value": "6"
-    },
-    {
-      "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
-      "kind": "IntegerLiteral",
-      "offset": 434,
-      "length": 1,
-      "value": "1"
-    },
-    {
-      "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
-      "kind": "IntegerLiteral",
-      "offset": 453,
-      "length": 1,
-      "value": "2"
-    },
-    {
-      "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
-      "kind": "IntegerLiteral",
-      "offset": 471,
-      "length": 1,
-      "value": "3"
-    },
-    {
-      "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
-      "kind": "IntegerLiteral",
-      "offset": 490,
-      "length": 1,
-      "value": "4"
-    },
-    {
-      "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
-      "kind": "IntegerLiteral",
-      "offset": 511,
-      "length": 1,
-      "value": "5"
-    },
-    {
-      "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
-      "kind": "IntegerLiteral",
-      "offset": 528,
+      "offset": 532,
       "length": 1,
       "value": "6"
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGALog.swift",
       "kind": "StringLiteral",
-      "offset": 635,
+      "offset": 639,
       "length": 27,
       "value": "\"com.just4fun.sdk.logLevel\""
     },

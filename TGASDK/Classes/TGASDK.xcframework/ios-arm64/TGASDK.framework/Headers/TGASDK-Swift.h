@@ -275,6 +275,35 @@ SWIFT_CLASS("_TtC6TGASDK16TGAConfiguration")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
+/// 日志等级
+/// warning:
+/// 警告
+/// <ul>
+///   <li>
+///     off: 关闭
+///   </li>
+///   <li>
+///     error: 错误
+///   </li>
+///   <li>
+///     info: 信息
+///   </li>
+///   <li>
+///     debug: debug
+///   </li>
+///   <li>
+///     all: 所有
+///   </li>
+/// </ul>
+typedef SWIFT_ENUM(NSInteger, TGALogLevel, open) {
+  TGALogLevelOff = 1,
+  TGALogLevelError = 2,
+  TGALogLevelInfo = 3,
+  TGALogLevelDebug = 4,
+  TGALogLevelWarning = 5,
+  TGALogLevelAll = 6,
+};
+
 @class TGAUserInfo;
 @protocol TGASdkDelegate;
 
@@ -306,6 +335,10 @@ SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TGASdk * _No
 /// \param theme 主题
 ///
 - (void)openGameCenterWithSecUrl:(NSString * _Nullable)secUrl secTitle:(NSString * _Nullable)secTitle theme:(NSString * _Nullable)theme;
+/// 设置日志等级
+/// \param level TGALogLevel
+///
+- (void)setLogLevelWithLevel:(enum TGALogLevel)level;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

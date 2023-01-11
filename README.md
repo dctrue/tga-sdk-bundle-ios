@@ -34,6 +34,12 @@ TGASdk.shared.configuration.statusBarStyle = .lightContent
 TGASdk.shared.configuration.navigationBackImage = UIImage()
 ```
 
+### Print Log
+```Swift
+TGASdk.shared.setLogLevel(level: .all)
+```
+
+
 ### Init TGASDK
 ```Swift
 // env: default is empty
