@@ -6579,12 +6579,12 @@
       "kind": "StringLiteral",
       "offset": 375,
       "length": 7,
-      "value": "\"1.2.0\""
+      "value": "\"1.2.1\""
     },
     {
       "filePath": "\/Users\/xiaobinliu\/Desktop\/TGA\/tga-sdk-ios\/TGAProject\/Classes\/Core\/TGAConstant.swift",
       "kind": "StringLiteral",
-      "offset": 761,
+      "offset": 747,
       "length": 13,
       "value": "\"com.tga.sdk\""
     },
