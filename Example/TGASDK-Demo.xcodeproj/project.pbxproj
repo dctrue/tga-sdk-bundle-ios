@@ -311,7 +311,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TGASDK-Swift/Pods-TGASDK-Swift-resources.sh",
-				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-11.5.1/AppLovinSDKResources.bundle",
+				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-11.5.5/AppLovinSDKResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TGASDK/TGASDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -371,7 +371,7 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-TGASDK-OC/Pods-TGASDK-OC-resources.sh",
-				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-11.5.1/AppLovinSDKResources.bundle",
+				"${PODS_ROOT}/AppLovinSDK/applovin-ios-sdk-11.5.5/AppLovinSDKResources.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/TGASDK/TGASDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -554,7 +554,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.just4fun.tgaios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.turkcell.gnctrkcll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -571,7 +571,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = com.just4fun.tgaios;
+				PRODUCT_BUNDLE_IDENTIFIER = com.turkcell.gnctrkcll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;

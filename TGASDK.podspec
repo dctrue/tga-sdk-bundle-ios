@@ -1,12 +1,12 @@
 Pod::Spec.new do |s|
   s.name             = 'TGASDK'
-  s.version          = '1.2.1'
+  s.version          = '1.2.2'
   s.summary          = 'TGASDK SDK for iOS'
 
-  s.homepage         = 'https://github.com/dctrue/tga-sdk-bundle-ios'
+  s.homepage         = 'https://github.com/Just4fun2021/tga-sdk-bundle-ios'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'just4fun' => 'just4fun' }
-  s.source           = { :git => 'https://github.com/dctrue/tga-sdk-bundle-ios.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Just4fun2021/tga-sdk-bundle-ios.git', :tag => s.version.to_s }
 
 
   s.requires_arc = true
