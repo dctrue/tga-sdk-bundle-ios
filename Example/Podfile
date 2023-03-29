@@ -6,11 +6,16 @@ target 'TGASDK-Swift' do
   pod 'TGASDK', :path => '../'
   
   pod 'CocoaDebug', '~> 1.7.2'
+  pod 'AppLovinMediationAdColonyAdapter', '~> 4.9.0.0.2'
+  #pod 'AppLovinMediationUnityAdsAdapter'
+  pod 'AppLovinMediationVungleAdapter', '~> 6.12.0.2'
 end
 
 target 'TGASDK-OC' do
   pod 'TGASDK', :path => '../'
-  
+  pod 'AppLovinMediationAdColonyAdapter', '~> 4.9.0.0.2'
+  #pod 'AppLovinMediationUnityAdsAdapter'
+  pod 'AppLovinMediationVungleAdapter', '~> 6.12.0.2'
 end
 
 post_install do |installer|

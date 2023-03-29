@@ -50,6 +50,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Demo"
         view.addSubview(tableView)
+        TGASdk.shared.setLogLevel(level: .all)
         NSLayoutConstraint.activate([
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -90,9 +91,10 @@ extension ViewController: UITableViewDelegate {
             TGASdk.shared.configuration.statusBarStyle = .lightContent
             TGASdk.shared.configuration.navigationBackImage = UIImage(named: "navigation_back_default")
         case .initTGA:
-            TGASdk.shared.initSdk(env: "", appKey: "", userInfo: nil, delegate: self)
+            TGASdk.shared.initSdk(env: "", appKey: "8b99b56478a9427f8bcb8aee1ee7f292", userInfo: nil, delegate: self)
         case .openGameCenter:
-            TGASdk.shared.openGameCenter(secUrl: nil, secTitle: nil)
+            TGASdk.shared.openGameCenter(vc: self, secUrl: "https://data.just4fun.sg/kule-h5-tool/tool.html", secTitle: "")
+            //TGASdk.shared.openGameCenter(secUrl: nil, secTitle: nil)
         }
         tableView.deselectRow(at: indexPath, animated: true)
     }
